@@ -72,6 +72,17 @@ function SignIn() {
         navigate({ to: "/dashboard" });
         return;
       }
+      if (email.trim().toLowerCase() === "haris@gmail.com" && password === "12345678") {
+        try {
+          localStorage.setItem(
+            "qunomy_user",
+            JSON.stringify({ email: email.trim().toLowerCase(), name: "Ali Raza" }),
+          );
+        } catch {}
+        toast.success("Welcome back, Ali Raza.");
+        navigate({ to: "/lawyer-dashboard" });
+        return;
+      }
       const message = "Invalid email or password. Please try again.";
       setFormError(message);
       toast.error(message);
