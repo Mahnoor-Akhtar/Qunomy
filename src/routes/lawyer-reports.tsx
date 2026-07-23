@@ -102,9 +102,9 @@ function LawyerReports() {
 
   return (
     <LawyerShell active="reports">
-      <div className="flex flex-col h-full space-y-6 max-w-[1400px] mx-auto w-full">
+      <div className="flex flex-col space-y-6 max-w-[1400px] mx-auto w-full">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-[24px] font-bold text-[#14213D] tracking-tight">Reports & Analytics</h1>
             <div className="text-[12px] font-medium text-[#1F1F1F]/50 mt-1">
@@ -130,7 +130,7 @@ function LawyerReports() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 shrink-0">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {STATS.map((stat, idx) => {
             const Icon = stat.icon;
             return (
@@ -160,7 +160,7 @@ function LawyerReports() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-6 border-b border-[#14213D]/10 shrink-0">
+        <div className="flex gap-6 border-b border-[#14213D]/10">
           {["overview", "cases", "revenue", "team performance", "detailed reports"].map((tab) => (
             <button
               key={tab}
@@ -178,7 +178,7 @@ function LawyerReports() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto min-h-0 pb-10 space-y-6">
+        <div className="pb-10 space-y-6">
           
           {activeTab === "overview" && (
             <>
