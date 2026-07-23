@@ -15,7 +15,8 @@ import {
   CheckCircle2,
   Phone,
   Send,
-  Lightbulb
+  Lightbulb,
+  Settings
 } from "lucide-react";
 import { useState } from "react";
 
