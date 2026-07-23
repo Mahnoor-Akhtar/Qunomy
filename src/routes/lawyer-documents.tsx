@@ -259,17 +259,6 @@ function LawyerDocuments() {
             
             <div className="flex-1 overflow-x-auto">
               <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-[#14213D]/10 bg-gray-50/50">
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Document Name</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Type</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Tags</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Uploaded By</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Uploaded On</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide">Size</th>
-                    <th className="px-3 py-2 text-[10px] font-bold text-[#14213D] uppercase tracking-wide text-center w-24">Actions</th>
-                  </tr>
-                </thead>
                 <tbody>
                   {MOCK_DOCUMENTS.map((doc) => {
                     const isSelected = selectedDocument?.id === doc.id;
@@ -279,19 +268,19 @@ function LawyerDocuments() {
                         onClick={() => setSelectedDocument(doc)}
                         className={`border-b border-[#14213D]/5 cursor-pointer transition-colors group ${isSelected ? "bg-emerald-50/30" : "hover:bg-gray-50/50"}`}
                       >
-                        <td className="px-3 py-3">
-                          <div className="flex items-center gap-2">
-                            <div className="h-6 w-6 rounded flex items-center justify-center bg-rose-100 text-rose-600 shrink-0">
-                              <span className="text-[8px] font-bold">PDF</span>
+                        <td className="px-3 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="h-7 w-7 rounded flex items-center justify-center bg-rose-100 text-rose-600 shrink-0">
+                              <span className="text-[9px] font-bold">PDF</span>
                             </div>
-                            <span className={`text-[11px] font-bold truncate ${isSelected ? "text-emerald-700" : "text-[#14213D]"}`}>{doc.name}</span>
+                            <span className={`text-[12px] font-bold truncate ${isSelected ? "text-emerald-700" : "text-[#14213D]"}`}>{doc.name}</span>
                           </div>
                         </td>
-                        <td className="px-3 py-3 text-[10px] font-medium text-[#1F1F1F]/70">{doc.type}</td>
-                        <td className="px-3 py-3">
-                          <div className="flex flex-wrap gap-1">
+                        <td className="px-3 py-4 text-[11px] font-medium text-[#1F1F1F]/70">{doc.type}</td>
+                        <td className="px-3 py-4">
+                          <div className="flex flex-wrap gap-2">
                             {doc.tags.map(tag => (
-                              <span key={tag} className={`text-[9px] font-medium px-1.5 py-0.5 rounded ${
+                              <span key={tag} className={`text-[10px] font-medium px-2 py-1 rounded ${
                                 tag === 'Petition' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
                                 tag === 'Affidavit' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
                                 tag === 'Vakalatnama' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
@@ -303,26 +292,6 @@ function LawyerDocuments() {
                             ))}
                           </div>
                         </td>
-                        <td className="px-3 py-3 text-[10px] font-medium text-[#1F1F1F]/70">{doc.uploadedBy}</td>
-                        <td className="px-3 py-3 text-[10px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{doc.uploadedOn}</td>
-                        <td className="px-3 py-3 text-[10px] font-medium text-[#1F1F1F]/70">{doc.size}</td>
-                        <td className="px-3 py-3 text-center">
-                           <div className="flex justify-center items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                             <button className="h-6 w-6 flex items-center justify-center rounded hover:bg-white border border-transparent hover:border-[#14213D]/10 text-[#1F1F1F]/50 hover:text-[#14213D] shadow-sm transition-all" onClick={(e) => e.stopPropagation()}>
-                               <Download className="h-3 w-3" />
-                             </button>
-                             <button className="h-6 w-6 flex items-center justify-center rounded hover:bg-white border border-transparent hover:border-[#14213D]/10 text-[#1F1F1F]/50 hover:text-[#14213D] shadow-sm transition-all" onClick={(e) => e.stopPropagation()}>
-                               <Eye className="h-3 w-3" />
-                             </button>
-                             <button 
-                              className="h-6 w-6 flex items-center justify-center rounded hover:bg-white border border-transparent hover:border-[#14213D]/10 text-[#1F1F1F]/50 hover:text-[#14213D] shadow-sm transition-all" 
-                              onClick={(e) => { e.stopPropagation(); setIsHistoryModalOpen(true); }}
-                              title="Version History"
-                             >
-                               <MoreVertical className="h-3 w-3" />
-                             </button>
-                           </div>
-                        </td>
                       </tr>
                     );
                   })}
@@ -333,85 +302,100 @@ function LawyerDocuments() {
               Showing 1 to 6 of 6 documents
             </div>
           </div>
-
-          {/* Right Pane: File Details */}
-          {selectedDocument && (
-            <div className="w-[300px] bg-white border border-[#14213D]/10 rounded-xl flex flex-col shadow-sm">
-              <div className="p-4 border-b border-[#14213D]/10 flex items-start gap-3">
-                 <div className="h-10 w-10 rounded-lg flex items-center justify-center bg-rose-100 text-rose-600 shrink-0">
-                    <span className="text-[10px] font-bold">PDF</span>
-                  </div>
-                  <div>
-                    <h3 className="text-[13px] font-bold text-[#14213D] break-all leading-tight">{selectedDocument.name}</h3>
-                    <p className="text-[11px] text-[#1F1F1F]/50 mt-1">{selectedDocument.size}</p>
-                  </div>
-              </div>
-              
-              <div className="flex border-b border-[#14213D]/10">
-                <button className="flex-1 py-2.5 text-[11px] font-bold text-emerald-600 border-b-2 border-emerald-600">Details</button>
-                <button className="flex-1 py-2.5 text-[11px] font-bold text-[#1F1F1F]/40 hover:text-[#14213D] transition-colors">Activity</button>
-              </div>
-
-              <div className="flex-1 p-4 overflow-y-auto space-y-4">
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Document Type</div>
-                  <div className="text-[11px] font-bold text-[#14213D]">{selectedDocument.type}</div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50 mt-1">Tags</div>
-                  <div className="flex flex-wrap gap-1">
-                    {selectedDocument.tags.map((tag: string) => (
-                       <span key={tag} className={`text-[9px] font-medium px-2 py-0.5 rounded ${
-                         tag === 'Petition' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
-                         tag === 'Affidavit' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
-                         tag === 'Vakalatnama' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
-                         tag === 'Index' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
-                         'bg-orange-50 text-orange-600 border border-orange-100'
-                       }`}>
-                          {tag}
-                       </span>
-                    ))}
-                    <button className="text-[9px] font-bold text-[#1F1F1F]/40 hover:text-emerald-600 ml-1 transition-colors">+ Add Tag</button>
-                  </div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Uploaded By</div>
-                  <div className="text-[11px] font-medium text-[#1F1F1F]/70">{selectedDocument.uploadedBy}</div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Uploaded On</div>
-                  <div className="text-[11px] font-medium text-[#1F1F1F]/70">{selectedDocument.uploadedOn}</div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Case</div>
-                  <div className="text-[11px] font-bold text-[#14213D]">
-                    {MOCK_CASES.find(c => c.id === selectedCase)?.title}
-                    <div className="text-[9px] text-[#1F1F1F]/50 font-medium mt-0.5">{MOCK_CASES.find(c => c.id === selectedCase)?.no}</div>
-                  </div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Folder</div>
-                  <div className="text-[11px] font-bold text-[#14213D]">{selectedFolder}</div>
-                </div>
-                <div className="grid grid-cols-[100px_1fr] gap-2 items-start">
-                  <div className="text-[10px] font-medium text-[#1F1F1F]/50">Description</div>
-                  <div className="text-[11px] font-medium text-[#14213D]/80">Original plaint filed in this case.</div>
-                </div>
-              </div>
-
-              <div className="p-4 border-t border-[#14213D]/10 space-y-2">
-                <button className="w-full flex items-center justify-center gap-2 h-9 rounded-lg border border-[#14213D]/15 text-[11px] font-bold text-[#14213D] hover:bg-gray-50 transition-colors shadow-sm">
-                  <Download className="h-3.5 w-3.5" /> Download
-                </button>
-                <button className="w-full flex items-center justify-center gap-2 h-9 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] font-bold text-emerald-700 hover:bg-emerald-100 transition-colors shadow-sm">
-                  <Eye className="h-3.5 w-3.5" /> View Document
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       </div>
       
+      {/* File Details Modal */}
+      {selectedDocument && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#14213D]/40 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-[420px] flex flex-col overflow-hidden max-h-[90vh]">
+            <div className="p-5 border-b border-[#14213D]/10 flex items-start justify-between gap-3">
+               <div className="flex items-center gap-4">
+                 <div className="h-12 w-12 rounded-xl flex items-center justify-center bg-rose-100 text-rose-600 shrink-0">
+                    <span className="text-[12px] font-bold">PDF</span>
+                  </div>
+                  <div>
+                    <h3 className="text-[16px] font-bold text-[#14213D] break-all leading-tight">{selectedDocument.name}</h3>
+                    <p className="text-[12px] text-[#1F1F1F]/50 mt-1">{selectedDocument.size}</p>
+                  </div>
+               </div>
+               <button 
+                onClick={() => setSelectedDocument(null)}
+                className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-100 text-[#1F1F1F]/50 hover:text-[#14213D] transition-colors"
+               >
+                 <X className="h-5 w-5" />
+               </button>
+            </div>
+            
+            <div className="flex border-b border-[#14213D]/10">
+              <button className="flex-1 py-3 text-[12px] font-bold text-emerald-600 border-b-2 border-emerald-600">Details</button>
+              <button className="flex-1 py-3 text-[12px] font-bold text-[#1F1F1F]/40 hover:text-[#14213D] transition-colors">Activity</button>
+            </div>
+
+            <div className="flex-1 p-6 overflow-y-auto space-y-6">
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50">Document Type</div>
+                <div className="text-[13px] font-bold text-[#14213D]">{selectedDocument.type}</div>
+              </div>
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50 mt-1">Tags</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedDocument.tags.map((tag: string) => (
+                     <span key={tag} className={`text-[10px] font-medium px-2.5 py-1 rounded ${
+                       tag === 'Petition' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
+                       tag === 'Affidavit' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                       tag === 'Vakalatnama' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
+                       tag === 'Index' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                       'bg-orange-50 text-orange-600 border border-orange-100'
+                     }`}>
+                        {tag}
+                     </span>
+                  ))}
+                  <button className="text-[10px] font-bold text-[#1F1F1F]/40 hover:text-emerald-600 ml-1 transition-colors">+ Add Tag</button>
+                </div>
+              </div>
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50">Uploaded By</div>
+                <div className="text-[13px] font-medium text-[#1F1F1F]/70">{selectedDocument.uploadedBy}</div>
+              </div>
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50">Uploaded On</div>
+                <div className="text-[13px] font-medium text-[#1F1F1F]/70">{selectedDocument.uploadedOn}</div>
+              </div>
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50">Case</div>
+                <div className="text-[13px] font-bold text-[#14213D]">
+                  {MOCK_CASES.find(c => c.id === selectedCase)?.title}
+                  <div className="text-[10px] text-[#1F1F1F]/50 font-medium mt-0.5">{MOCK_CASES.find(c => c.id === selectedCase)?.no}</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
+                <div className="text-[12px] font-medium text-[#1F1F1F]/50">Folder</div>
+                <div className="text-[13px] font-bold text-[#14213D]">{selectedFolder}</div>
+              </div>
+              
+              <div className="pt-2">
+                <button 
+                  onClick={() => setIsHistoryModalOpen(true)}
+                  className="text-[12px] font-bold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1"
+                >
+                  <MoreVertical className="h-4 w-4" /> View Version History
+                </button>
+              </div>
+            </div>
+
+            <div className="p-5 border-t border-[#14213D]/10 flex gap-3">
+              <button className="flex-1 flex items-center justify-center gap-2 h-10 rounded-xl border border-[#14213D]/15 text-[12px] font-bold text-[#14213D] hover:bg-gray-50 transition-colors shadow-sm">
+                <Download className="h-4 w-4" /> Download
+              </button>
+              <button className="flex-1 flex items-center justify-center gap-2 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-[12px] font-bold text-emerald-700 hover:bg-emerald-100 transition-colors shadow-sm">
+                <Eye className="h-4 w-4" /> View Document
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Upload Document Modal */}
       {isUploadModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#14213D]/40 backdrop-blur-sm p-4">
