@@ -15,7 +15,7 @@ import {
   File,
   X
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/lawyer-documents")({
   component: LawyerDocuments,
@@ -100,6 +100,17 @@ function LawyerDocuments() {
   const [selectedDocument, setSelectedDocument] = useState<any>(null);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
+  
+  const displayCases = isMember ? MOCK_CASES.slice(0, 2) : MOCK_CASES;
 
   return (
     <LawyerShell active="documents">
@@ -206,7 +217,7 @@ function LawyerDocuments() {
             </div>
             <div className="flex-1 overflow-y-auto p-2">
               <div className="space-y-0.5">
-                {MOCK_CASES.map((c) => {
+                {displayCases.map((c) => {
                   const isExpanded = selectedCase === c.id;
                   return (
                     <div key={c.id}>
@@ -365,8 +376,8 @@ function LawyerDocuments() {
               <div className="grid grid-cols-[120px_1fr] gap-4 items-start">
                 <div className="text-[12px] font-medium text-[#1F1F1F]/50">Case</div>
                 <div className="text-[13px] font-bold text-[#14213D]">
-                  {MOCK_CASES.find(c => c.id === selectedCase)?.title}
-                  <div className="text-[10px] text-[#1F1F1F]/50 font-medium mt-0.5">{MOCK_CASES.find(c => c.id === selectedCase)?.no}</div>
+                  {displayCases.find(c => c.id === selectedCase)?.title}
+                  <div className="text-[10px] text-[#1F1F1F]/50 font-medium mt-0.5">{displayCases.find(c => c.id === selectedCase)?.no}</div>
                 </div>
               </div>
               <div className="grid grid-cols-[120px_1fr] gap-4 items-start">

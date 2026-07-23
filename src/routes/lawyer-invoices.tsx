@@ -5,7 +5,7 @@ import {
   MoreVertical, X, Check, Bell, User, Scale,
   FileText, Banknote, CreditCard, AlertCircle, Calendar, Trash2, Printer, Share2, ArrowRight
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/lawyer-invoices")({
   component: LawyerInvoices,
@@ -38,6 +38,19 @@ function LawyerInvoices() {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [selectedInvoice, setSelectedInvoice] = useState<any>(null);
   const [activeTab, setActiveTab] = useState("preview"); // preview, activity
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
+  // Simulate permission for member
+  const canCreateInvoice = !isMember; // change to true to simulate permission
+
+  const displayInvoices = isMember ? MOCK_INVOICES.slice(0, 2) : MOCK_INVOICES;
 
   const formatMoney = (amount: number) => {
     return amount.toLocaleString('en-US');
@@ -60,12 +73,14 @@ function LawyerInvoices() {
               <Download className="h-4 w-4 text-[#1F1F1F]/60" /> 
               <span className="text-[13px] font-bold text-[#14213D]">Export</span>
             </button>
-            <button 
-             onClick={() => setIsCreateModalOpen(true)}
-             className="h-10 px-5 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[13px] font-bold transition-colors shadow-sm"
-            >
-              <Plus className="h-4 w-4" /> Create Invoice
-            </button>
+            {(!isMember || canCreateInvoice) && (
+              <button 
+               onClick={() => setIsCreateModalOpen(true)}
+               className="h-10 px-5 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[13px] font-bold transition-colors shadow-sm"
+              >
+                <Plus className="h-4 w-4" /> Create Invoice
+              </button>
+            )}
           </div>
         </div>
 
@@ -171,7 +186,7 @@ function LawyerInvoices() {
                  </tr>
                </thead>
                <tbody>
-                 {MOCK_INVOICES.map((inv, idx) => (
+                 {displayInvoices.map((inv, idx) => (
                    <tr key={inv.id} className="border-b border-[#14213D]/5 hover:bg-gray-50/80 transition-all duration-200 group">
                      <td className="px-2 py-2.5 text-[10px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
                      <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] whitespace-nowrap">{inv.id}</td>

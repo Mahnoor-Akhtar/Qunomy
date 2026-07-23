@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import LawyerShell from "../components/dashboard/LawyerShell";
 import { 
   Search, 
@@ -15,7 +16,6 @@ import {
   ChevronLeft,
   ChevronRight
 } from "lucide-react";
-import { useState } from "react";
 
 export const Route = createFileRoute("/lawyer-clients")({
   component: LawyerClients,
@@ -92,6 +92,19 @@ const MOCK_CLIENTS = [
 function LawyerClients() {
   const navigate = useNavigate();
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
+  // Simulate permissions for members
+  const canAddClients = !isMember; // change to true to simulate permission granted
+
+  const displayClients = isMember ? MOCK_CLIENTS.slice(0, 2) : MOCK_CLIENTS;
 
   return (
     <LawyerShell active="clients">
@@ -111,14 +124,18 @@ function LawyerClients() {
           </div>
           
           <div className="flex items-center gap-3">
-            <button className="h-9 px-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-colors">
-              <Upload className="h-4 w-4" />
-              Import Clients (Excel)
-            </button>
-            <Link to="/lawyer-clients-new" className="h-9 px-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-colors">
-              <Plus className="h-4 w-4" />
-              Add New Client
-            </Link>
+            {!isMember && (
+              <button className="h-9 px-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-colors">
+                <Upload className="h-4 w-4" />
+                Import Clients (Excel)
+              </button>
+            )}
+            {(!isMember || canAddClients) && (
+              <Link to="/lawyer-clients-new" className="h-9 px-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-colors">
+                <Plus className="h-4 w-4" />
+                Add New Client
+              </Link>
+            )}
           </div>
         </div>
 
@@ -192,10 +209,11 @@ function LawyerClients() {
                 <List className="h-4 w-4" />
               </button>
             </div>
-            
-            <button className="h-9 w-9 flex items-center justify-center border border-[#14213D]/10 rounded-lg text-[#1F1F1F]/60 bg-white hover:bg-gray-50 hover:text-[#14213D] transition-colors shadow-sm" title="Export">
-              <Download className="h-4 w-4" />
-            </button>
+            {!isMember && (
+              <button className="h-9 w-9 flex items-center justify-center border border-[#14213D]/10 rounded-lg text-[#1F1F1F]/60 bg-white hover:bg-gray-50 hover:text-[#14213D] transition-colors shadow-sm" title="Export">
+                <Download className="h-4 w-4" />
+              </button>
+            )}
         </div>
 
         {/* Data Table */}
@@ -219,7 +237,7 @@ function LawyerClients() {
                 </tr>
               </thead>
               <tbody>
-                {MOCK_CLIENTS.map((client) => (
+                {displayClients.map((client) => (
                   <tr key={client.id} className="border-b border-[#14213D]/5 hover:bg-gray-50/50 transition-colors group">
                     <td className="px-2 py-2 text-[10px] font-medium text-[#1F1F1F]/60">
                       {client.id}

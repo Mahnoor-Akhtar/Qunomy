@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import LawyerShell from "@/components/dashboard/LawyerShell";
 import {
   Search,
@@ -21,8 +22,19 @@ export const Route = createFileRoute("/lawyer-cases")({
 
 function LawyerCases() {
   const navigate = useNavigate();
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
 
-  const casesData = [
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
+  // Simulate permissions for members (controlled by Firm Admin)
+  const canAddCases = !isMember; // change to true to simulate permission granted
+
+  const allCasesData = [
     {
       id: 1,
       title: "Muhammad Ahmad vs State",
@@ -95,6 +107,10 @@ function LawyerCases() {
     },
   ];
 
+  const casesData = isMember 
+    ? allCasesData.map(c => ({ ...c, lawyer: "Ijaz" })).slice(0, 2) // mock member cases
+    : allCasesData;
+
   return (
     <LawyerShell active="cases">
       <div className="flex flex-col gap-5 h-full">
@@ -112,14 +128,18 @@ function LawyerCases() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors shadow-sm">
-              <Download className="h-4 w-4" />
-              Import Cases
-            </button>
-            <Link to="/lawyer-cases-new" className="flex items-center gap-2 bg-[#B8860B] hover:bg-[#14213D] text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors shadow-sm">
-              <Plus className="h-4 w-4" />
-              Add New Case
-            </Link>
+            {!isMember && (
+              <button className="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors shadow-sm">
+                <Download className="h-4 w-4" />
+                Import Cases
+              </button>
+            )}
+            {(!isMember || canAddCases) && (
+              <Link to="/lawyer-cases-new" className="flex items-center gap-2 bg-[#B8860B] hover:bg-[#14213D] text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors shadow-sm">
+                <Plus className="h-4 w-4" />
+                Add New Case
+              </Link>
+            )}
           </div>
         </div>
 

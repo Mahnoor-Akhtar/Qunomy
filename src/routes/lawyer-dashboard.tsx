@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import LawyerShell from "@/components/dashboard/LawyerShell";
 import {
   Briefcase,
@@ -24,13 +25,32 @@ export const Route = createFileRoute("/lawyer-dashboard")({
 });
 
 function LawyerDashboard() {
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
+
+  const hearingsData = isMember ? [
+    { time: "10:00 AM", title: "Muhammad Ahmad vs State", num: "Criminal Case No. 123/2024", court: "Sessions Court, Lahore", judge: "Judge: M. Aslam Khan", room: "Court Room 3" },
+    { time: "01:00 PM", title: "Fatima Bibi vs Asif Khan", num: "Family Case No. 789/2024", court: "Family Court, Lahore", judge: "Judge: Farah Naz", room: "Court Room 2" }
+  ] : [
+    { time: "10:00 AM", title: "Muhammad Ahmad vs State", num: "Criminal Case No. 123/2024", court: "Sessions Court, Lahore", judge: "Judge: M. Aslam Khan", room: "Court Room 3" },
+    { time: "11:30 AM", title: "ABC Corp vs XYZ Bank", num: "Civil Suit No. 456/2023", court: "Banking Court, Lahore", judge: "Judge: Saima Parveen", room: "Court Room 1" },
+    { time: "01:00 PM", title: "Fatima Bibi vs Asif Khan", num: "Family Case No. 789/2024", court: "Family Court, Lahore", judge: "Judge: Farah Naz", room: "Court Room 2" },
+    { time: "03:00 PM", title: "The State vs Imran Ali", num: "FIR No. 987/2024", court: "Anti Terrorism Court", judge: "Judge: M. Tariq Mehmood", room: "Court Room 1" },
+  ];
+
   return (
     <LawyerShell active="dashboard">
       <div className="flex items-center justify-between mb-5">
         <div>
           <h1 className="text-2xl font-bold text-[#14213D] flex items-center gap-2"
               style={{ fontFamily: "'Libre Baskerville', serif" }}>
-            Good morning, Haris! <span className="text-xl">👋</span>
+            Good morning, {user?.name ?? "Haris"}! <span className="text-xl">👋</span>
           </h1>
           <p className="text-xs text-[#1F1F1F]/60 mt-1">Here's what's happening with your cases today.</p>
         </div>
@@ -49,9 +69,11 @@ function LawyerDashboard() {
               <Briefcase className="h-4 w-4" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1">
-              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">Total Active Cases</div>
+              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">
+                {isMember ? "My Active Cases" : "Total Active Cases"}
+              </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>326</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "24" : "326"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-emerald-600">
@@ -66,9 +88,11 @@ function LawyerDashboard() {
               <Users className="h-4 w-4" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1">
-              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">Total Clients</div>
+              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">
+                {isMember ? "My Clients" : "Total Clients"}
+              </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>152</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "12" : "152"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-[#1F1F1F]/40">
@@ -83,9 +107,11 @@ function LawyerDashboard() {
               <FileText className="h-4 w-4" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1">
-              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">Pending Invoices</div>
+              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">
+                {isMember ? "My Pending Invoices" : "Pending Invoices"}
+              </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>48</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "3" : "48"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-[#1F1F1F]/50">
@@ -100,9 +126,11 @@ function LawyerDashboard() {
               <Gavel className="h-4 w-4" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1">
-              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">Today's Hearings</div>
+              <div className="text-[10px] font-medium leading-tight text-[#1F1F1F]/55">
+                {isMember ? "My Today's Hearings" : "Today's Hearings"}
+              </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>15</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "2" : "15"}</div>
             </div>
           </div>
           <button className="mt-2 text-[10px] font-medium text-blue-600 hover:text-[#14213D] underline">
@@ -139,12 +167,7 @@ function LawyerDashboard() {
               <div className="flex-1 overflow-x-auto">
                 <table className="w-full min-w-[500px]">
                   <tbody>
-                    {[
-                      { time: "10:00 AM", title: "Muhammad Ahmad vs State", num: "Criminal Case No. 123/2024", court: "Sessions Court, Lahore", judge: "Judge: M. Aslam Khan", room: "Court Room 3" },
-                      { time: "11:30 AM", title: "ABC Corp vs XYZ Bank", num: "Civil Suit No. 456/2023", court: "Banking Court, Lahore", judge: "Judge: Saima Parveen", room: "Court Room 1" },
-                      { time: "01:00 PM", title: "Fatima Bibi vs Asif Khan", num: "Family Case No. 789/2024", court: "Family Court, Lahore", judge: "Judge: Farah Naz", room: "Court Room 2" },
-                      { time: "03:00 PM", title: "The State vs Imran Ali", num: "FIR No. 987/2024", court: "Anti Terrorism Court", judge: "Judge: M. Tariq Mehmood", room: "Court Room 1" },
-                    ].map((h, i) => (
+                    {hearingsData.map((h, i) => (
                       <tr key={i} className="border-t border-[#14213D]/5 hover:bg-[#14213D]/[0.02] transition">
                         <td className="py-3 px-2 w-20">
                           <div className="text-[11px] font-bold text-emerald-600 leading-tight">{h.time.split(' ')[0]}</div>
@@ -269,10 +292,12 @@ function LawyerDashboard() {
                 <span className="text-[9px] font-medium text-[#14213D] group-hover:text-[#B8860B]">Invoice</span>
               </button>
 
-              <button className="flex items-center gap-1.5 justify-center p-2 border border-[#14213D]/10 rounded bg-white hover:border-[#B8860B] group transition">
-                <FileDown className="h-3.5 w-3.5 text-slate-600 group-hover:text-[#B8860B]" />
-                <span className="text-[9px] font-medium text-[#14213D] group-hover:text-[#B8860B]">Export</span>
-              </button>
+              {!isMember && (
+                <button className="flex items-center gap-1.5 justify-center p-2 border border-[#14213D]/10 rounded bg-white hover:border-[#B8860B] group transition">
+                  <FileDown className="h-3.5 w-3.5 text-slate-600 group-hover:text-[#B8860B]" />
+                  <span className="text-[9px] font-medium text-[#14213D] group-hover:text-[#B8860B]">Export</span>
+                </button>
+              )}
             </div>
           </div>
 
@@ -287,7 +312,7 @@ function LawyerDashboard() {
               <h2 className="text-xs font-semibold text-rose-800" style={{ fontFamily: "'Libre Baskerville', serif" }}>Overdue / Missed</h2>
               <AlertTriangle className="h-4 w-4 text-rose-500" />
             </div>
-            <div className="text-2xl font-bold text-rose-600 leading-tight">6</div>
+            <div className="text-2xl font-bold text-rose-600 leading-tight">{isMember ? "1" : "6"}</div>
             <div className="text-[10px] font-semibold text-rose-600 mb-1">Hearings Overdue</div>
             <div className="text-[9px] text-rose-700/60 mb-2">Update dates to avoid missing cases</div>
             <button className="w-full bg-rose-100 hover:bg-rose-200 text-rose-700 py-1.5 rounded text-[10px] font-semibold transition">
@@ -319,7 +344,9 @@ function LawyerDashboard() {
                     <Calendar className="h-3 w-3" />
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#1F1F1F]/80"><span className="font-semibold text-[#14213D]">Aqsa Malik</span> updated hearing date in Case #123/2024</div>
+                    <div className="text-[10px] text-[#1F1F1F]/80">
+                      <span className="font-semibold text-[#14213D]">{isMember ? "You" : "Aqsa Malik"}</span> updated hearing date in Case #123/2024
+                    </div>
                     <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">10 minutes ago</div>
                   </div>
                 </div>
@@ -334,35 +361,39 @@ function LawyerDashboard() {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
-                  <div className="h-6 w-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 border-[2px] border-white">
-                    <FileCheck className="h-3 w-3" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#1F1F1F]/80">Invoice #INV-2025-034 generated for ABC Corp</div>
-                    <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">1 hour ago</div>
-                  </div>
-                </div>
+                {!isMember && (
+                  <>
+                    <div className="flex gap-3">
+                      <div className="h-6 w-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 border-[2px] border-white">
+                        <FileCheck className="h-3 w-3" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-[#1F1F1F]/80">Invoice #INV-2025-034 generated for ABC Corp</div>
+                        <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">1 hour ago</div>
+                      </div>
+                    </div>
 
-                <div className="flex gap-3">
-                  <div className="h-6 w-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 border-[2px] border-white">
-                    <CheckCircle className="h-3 w-3" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#1F1F1F]/80">Hearing marked completed in Case #789/2024</div>
-                    <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">2 hours ago</div>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <div className="h-6 w-6 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center shrink-0 border-[2px] border-white">
-                    <Users className="h-3 w-3" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#1F1F1F]/80">New client added: Zainab Khan</div>
-                    <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">3 hours ago</div>
-                  </div>
-                </div>
+                    <div className="flex gap-3">
+                      <div className="h-6 w-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 border-[2px] border-white">
+                        <CheckCircle className="h-3 w-3" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-[#1F1F1F]/80">Hearing marked completed in Case #789/2024</div>
+                        <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">2 hours ago</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="h-6 w-6 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center shrink-0 border-[2px] border-white">
+                        <Users className="h-3 w-3" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-[#1F1F1F]/80">New client added: Zainab Khan</div>
+                        <div className="text-[9px] text-[#1F1F1F]/40 mt-0.5">3 hours ago</div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             

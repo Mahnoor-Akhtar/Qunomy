@@ -101,7 +101,12 @@ export default function LawyerShell({
         {/* Navigation */}
         <nav className="mt-2 flex-1 overflow-y-auto px-3">
           <ul className="flex flex-col gap-1">
-            {LAWYER_NAV.map((item) => {
+            {LAWYER_NAV.filter(item => {
+              if (user?.email === "ijaz@gmail.com") {
+                if (item.key === "team" || item.key === "reports") return false;
+              }
+              return true;
+            }).map((item) => {
               const Icon = item.icon;
               const isActive = item.key === active;
               return (
@@ -132,7 +137,7 @@ export default function LawyerShell({
           </div>
           <div className="flex-1 leading-tight">
             <div className="text-[13px] font-semibold text-[#F5F0E6]">{user?.name ?? "Haris"}</div>
-            <div className="text-[10px] text-[#F5F0E6]/50">Admin</div>
+            <div className="text-[10px] text-[#F5F0E6]/50">{user?.email === "ijaz@gmail.com" ? "Member" : "Admin"}</div>
           </div>
           <button
             onClick={logout}

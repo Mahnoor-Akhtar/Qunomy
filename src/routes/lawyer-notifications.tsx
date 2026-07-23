@@ -18,7 +18,7 @@ import {
   Lightbulb,
   Settings
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/lawyer-notifications")({
   component: LawyerNotifications,
@@ -45,6 +45,15 @@ const VARIABLES = [
 function LawyerNotifications() {
   const [activeTab, setActiveTab] = useState("channels");
   const [activeChannel, setActiveChannel] = useState("whatsapp");
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
 
   return (
     <LawyerShell active="notifications">
@@ -61,7 +70,7 @@ function LawyerNotifications() {
 
         {/* Tabs */}
         <div className="flex gap-6 border-b border-[#14213D]/10 shrink-0">
-          {["channels", "timings", "templates", "log"].map((tab) => (
+          {["channels", "timings", "templates", "log"].filter(t => !isMember || (t !== "templates" && t !== "timings" && t !== "log")).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}

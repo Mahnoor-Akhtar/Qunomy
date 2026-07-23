@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+
 import LawyerShell from "@/components/dashboard/LawyerShell";
 import {
   Calendar,
@@ -31,6 +32,15 @@ function LawyerHearings() {
   const [activeTab, setActiveTab] = useState("week");
   const [openModal, setOpenModal] = useState<"none" | "hearing" | "causelist" | "reminders">("none");
   const [currentTimePos, setCurrentTimePos] = useState(64);
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
 
   useEffect(() => {
     const updateTime = () => {
@@ -322,11 +332,13 @@ function LawyerHearings() {
                </div>
 
                {/* Absolute Positioned Case Blocks */}
-               <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*1)] top-[128px] w-[calc((100%-60px)/7-8px)] mx-1 h-14 bg-blue-50 border-l-2 border-blue-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-blue-100 transition">
-                 <div className="text-[9px] font-bold text-blue-700 mb-0.5">10:00 AM</div>
-                 <div className="text-[9px] font-bold text-[#14213D] leading-tight truncate">ABC Corp vs XYZ Bank</div>
-                 <div className="text-[8px] text-[#1F1F1F]/60 mt-0.5 truncate">Banking Court</div>
-               </div>
+               {(!isMember) && (
+                  <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*1)] top-[128px] w-[calc((100%-60px)/7-8px)] mx-1 h-14 bg-blue-50 border-l-2 border-blue-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-blue-100 transition">
+                    <div className="text-[9px] font-bold text-blue-700 mb-0.5">10:00 AM</div>
+                    <div className="text-[9px] font-bold text-[#14213D] leading-tight truncate">ABC Corp vs XYZ Bank</div>
+                    <div className="text-[8px] text-[#1F1F1F]/60 mt-0.5 truncate">Banking Court</div>
+                  </div>
+               )}
 
                <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*2)] top-[224px] w-[calc((100%-60px)/7-8px)] mx-1 h-[70px] bg-purple-50 border-l-2 border-purple-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-purple-100 transition">
                  <div className="text-[9px] font-bold text-purple-700 mb-0.5">11:30 AM</div>
@@ -358,11 +370,13 @@ function LawyerHearings() {
                  <div className="text-[8px] text-[#1F1F1F]/60 mt-0.5 truncate">Banking Court</div>
                </div>
 
-               <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*4)] top-[320px] w-[calc((100%-60px)/7-8px)] mx-1 h-14 bg-rose-50 border-l-2 border-rose-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-rose-100 transition">
-                 <div className="text-[9px] font-bold text-rose-700 mb-0.5">1:00 PM</div>
-                 <div className="text-[9px] font-bold text-[#14213D] leading-tight truncate">FIA vs Usman Khalid</div>
-                 <div className="text-[8px] text-[#1F1F1F]/60 mt-0.5 truncate">FIA Court</div>
-               </div>
+               {!isMember && (
+                  <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*4)] top-[320px] w-[calc((100%-60px)/7-8px)] mx-1 h-14 bg-rose-50 border-l-2 border-rose-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-rose-100 transition">
+                    <div className="text-[9px] font-bold text-rose-700 mb-0.5">1:00 PM</div>
+                    <div className="text-[9px] font-bold text-[#14213D] leading-tight truncate">FIA vs Usman Khalid</div>
+                    <div className="text-[8px] text-[#1F1F1F]/60 mt-0.5 truncate">FIA Court</div>
+                  </div>
+               )}
 
                <div onClick={() => setOpenModal("hearing")} className="absolute left-[calc(60px+(100%-60px)/7*5)] top-[192px] w-[calc((100%-60px)/7-8px)] mx-1 h-[70px] bg-rose-50 border-l-2 border-rose-500 rounded p-1.5 shadow-sm z-20 overflow-hidden cursor-pointer hover:bg-rose-100 transition">
                  <div className="text-[9px] font-bold text-rose-700 mb-0.5">11:00 AM</div>
@@ -589,20 +603,22 @@ function LawyerHearings() {
                       <td className="py-3 px-4 text-xs font-bold text-[#14213D]">Aqsa Malik</td>
                       <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">Court Room 3</td>
                     </tr>
-                    <tr className="border-b border-[#14213D]/5">
-                      <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">2</td>
-                      <td className="py-3 px-4 text-xs font-bold text-[#14213D]">11:30 AM</td>
-                      <td className="py-3 px-4">
-                        <div className="text-xs font-bold text-[#14213D]">ABC Corp vs XYZ Bank</div>
-                        <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5">CS No. 456/2023</div>
-                      </td>
-                      <td className="py-3 px-4">
+                    {!isMember && (
+                      <tr className="border-b border-[#14213D]/5">
+                        <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">2</td>
+                        <td className="py-3 px-4 text-xs font-bold text-[#14213D]">11:30 AM</td>
+                        <td className="py-3 px-4">
+                          <div className="text-xs font-bold text-[#14213D]">ABC Corp vs XYZ Bank</div>
+                          <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5">CS No. 456/2023</div>
+                        </td>
+                        <td className="py-3 px-4">
                         <div className="text-xs font-bold text-[#14213D]">Banking Court,</div>
-                        <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5">Lahore</div>
-                      </td>
-                      <td className="py-3 px-4 text-xs font-bold text-[#14213D]">Saad Iqbal</td>
-                      <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">Court Room 1</td>
-                    </tr>
+                          <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5">Lahore</div>
+                        </td>
+                        <td className="py-3 px-4 text-xs font-bold text-[#14213D]">Saad Iqbal</td>
+                        <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">Court Room 1</td>
+                      </tr>
+                    )}
                     <tr>
                       <td className="py-3 px-4 text-xs font-medium text-[#1F1F1F]/60">3</td>
                       <td className="py-3 px-4 text-xs font-bold text-[#14213D]">1:00 PM</td>

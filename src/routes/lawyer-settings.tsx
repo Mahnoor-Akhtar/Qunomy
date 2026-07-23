@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LawyerShell from "../components/dashboard/LawyerShell";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   User, 
   Lock, 
@@ -22,6 +22,15 @@ export const Route = createFileRoute("/lawyer-settings")({
 
 function LawyerSettings() {
   const [activeTab, setActiveTab] = useState("profile");
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("qanomy_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const isMember = user?.email === "ijaz@gmail.com";
 
   const handleUpgradeRequest = () => {
     toast.success("Upgrade request sent successfully!", {
@@ -77,16 +86,19 @@ function LawyerSettings() {
             >
               <Lock className="h-4 w-4" /> Security & Password
             </button>
-            <button 
-              onClick={() => setActiveTab("subscription")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[13px] font-bold transition-all ${
-                activeTab === "subscription" 
-                  ? "bg-white text-emerald-600 shadow-sm border border-[#14213D]/10" 
-                  : "text-[#1F1F1F]/60 hover:bg-white/50 hover:text-[#14213D]"
-              }`}
-            >
-              <CreditCard className="h-4 w-4" /> Subscription Usage
-            </button>
+            {/* Hide Subscription tab for Member */}
+            {!isMember && (
+              <button 
+                onClick={() => setActiveTab("subscription")}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[13px] font-bold transition-all ${
+                  activeTab === "subscription" 
+                    ? "bg-white text-emerald-600 shadow-sm border border-[#14213D]/10" 
+                    : "text-[#1F1F1F]/60 hover:bg-white/50 hover:text-[#14213D]"
+                }`}
+              >
+                <CreditCard className="h-4 w-4" /> Subscription Usage
+              </button>
+            )}
           </div>
 
           {/* Content Area */}
