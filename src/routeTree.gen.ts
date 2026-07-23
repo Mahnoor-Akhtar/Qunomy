@@ -20,6 +20,7 @@ import { Route as LawyerClientsNewRouteImport } from './routes/lawyer-clients-ne
 import { Route as LawyerDashboardRouteImport } from './routes/lawyer-dashboard'
 import { Route as LawyerDocumentsRouteImport } from './routes/lawyer-documents'
 import { Route as LawyerHearingsRouteImport } from './routes/lawyer-hearings'
+import { Route as LawyerInvoicesRouteImport } from './routes/lawyer-invoices'
 import { Route as LawyerTeamRouteImport } from './routes/lawyer-team'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -88,6 +89,11 @@ const LawyerDocumentsRoute = LawyerDocumentsRouteImport.update({
 const LawyerHearingsRoute = LawyerHearingsRouteImport.update({
   id: '/lawyer-hearings',
   path: '/lawyer-hearings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LawyerInvoicesRoute = LawyerInvoicesRouteImport.update({
+  id: '/lawyer-invoices',
+  path: '/lawyer-invoices',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LawyerTeamRoute = LawyerTeamRouteImport.update({
@@ -174,6 +180,7 @@ export interface FileRoutesByFullPath {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -201,6 +208,7 @@ export interface FileRoutesByTo {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -229,6 +237,7 @@ export interface FileRoutesById {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -258,6 +267,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-invoices'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -285,6 +295,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-invoices'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -312,6 +323,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-invoices'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -340,6 +352,7 @@ export interface RootRouteChildren {
   LawyerDashboardRoute: typeof LawyerDashboardRoute
   LawyerDocumentsRoute: typeof LawyerDocumentsRoute
   LawyerHearingsRoute: typeof LawyerHearingsRoute
+  LawyerInvoicesRoute: typeof LawyerInvoicesRoute
   LawyerTeamRoute: typeof LawyerTeamRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
@@ -432,6 +445,13 @@ declare module '@tanstack/react-router' {
       path: '/lawyer-hearings'
       fullPath: '/lawyer-hearings'
       preLoaderRoute: typeof LawyerHearingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lawyer-invoices': {
+      id: '/lawyer-invoices'
+      path: '/lawyer-invoices'
+      fullPath: '/lawyer-invoices'
+      preLoaderRoute: typeof LawyerInvoicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lawyer-team': {
@@ -557,6 +577,7 @@ const rootRouteChildren: RootRouteChildren = {
   LawyerDashboardRoute: LawyerDashboardRoute,
   LawyerDocumentsRoute: LawyerDocumentsRoute,
   LawyerHearingsRoute: LawyerHearingsRoute,
+  LawyerInvoicesRoute: LawyerInvoicesRoute,
   LawyerTeamRoute: LawyerTeamRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
