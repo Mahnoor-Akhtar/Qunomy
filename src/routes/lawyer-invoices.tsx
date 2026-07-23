@@ -55,12 +55,18 @@ function LawyerInvoices() {
               <span className="text-[#14213D]">Invoices</span>
             </div>
           </div>
-          <button 
-           onClick={() => setIsCreateModalOpen(true)}
-           className="h-10 px-5 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[13px] font-bold transition-colors shadow-sm"
-          >
-            <Plus className="h-4 w-4" /> Create Invoice
-          </button>
+          <div className="flex items-center gap-3">
+            <button className="h-10 px-4 flex items-center gap-2 bg-white border border-[#14213D]/10 hover:bg-gray-50 rounded-lg transition-colors shadow-sm">
+              <Download className="h-4 w-4 text-[#1F1F1F]/60" /> 
+              <span className="text-[13px] font-bold text-[#14213D]">Export</span>
+            </button>
+            <button 
+             onClick={() => setIsCreateModalOpen(true)}
+             className="h-10 px-5 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[13px] font-bold transition-colors shadow-sm"
+            >
+              <Plus className="h-4 w-4" /> Create Invoice
+            </button>
+          </div>
         </div>
 
         {/* Stats Row */}
