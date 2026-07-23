@@ -155,34 +155,34 @@ function LawyerInvoices() {
              <table className="w-full text-left border-collapse">
                <thead>
                  <tr className="bg-white border-b border-[#14213D]/10">
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider w-10">#</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Invoice No.</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Client</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Case</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Issue Date</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Due Date</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Amount</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Paid</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Status</th>
-                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider text-right">Actions</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider w-8">#</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Invoice No.</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Client</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Case</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Issue Date</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Due Date</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Amount</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Paid</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Status</th>
+                   <th className="px-2 py-2.5 text-[9px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider text-right">Actions</th>
                  </tr>
                </thead>
                <tbody>
                  {MOCK_INVOICES.map((inv, idx) => (
                    <tr key={inv.id} className="border-b border-[#14213D]/5 hover:bg-gray-50/80 transition-all duration-200 group">
-                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
-                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">{inv.id}</td>
-                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] leading-tight min-w-[120px]">{inv.client}</td>
-                     <td className="px-3 py-3 min-w-[150px]">
-                       <div className="text-[11px] font-bold text-[#14213D] leading-tight">{inv.case1}</div>
-                       <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5 leading-tight">{inv.case2}</div>
+                     <td className="px-2 py-2.5 text-[10px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
+                     <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] whitespace-nowrap">{inv.id}</td>
+                     <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] leading-tight max-w-[120px] truncate" title={inv.client}>{inv.client}</td>
+                     <td className="px-2 py-2.5 max-w-[140px] truncate" title={inv.case1}>
+                       <div className="text-[10px] font-bold text-[#14213D] leading-tight truncate">{inv.case1}</div>
+                       <div className="text-[9px] text-[#1F1F1F]/50 mt-0.5 leading-tight truncate">{inv.case2}</div>
                      </td>
-                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.issueDate}</td>
-                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.dueDate}</td>
-                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.amount)}</td>
-                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.paid)}</td>
-                     <td className="px-3 py-3">
-                       <span className={`inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[9px] font-bold tracking-wide whitespace-nowrap ${
+                     <td className="px-2 py-2.5 text-[10px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.issueDate}</td>
+                     <td className="px-2 py-2.5 text-[10px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.dueDate}</td>
+                     <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.amount)}</td>
+                     <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.paid)}</td>
+                     <td className="px-2 py-2.5">
+                       <span className={`inline-flex items-center justify-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-wide whitespace-nowrap ${
                          inv.status === 'Paid' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
                          inv.status === 'Partial' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
                          inv.status === 'Overdue' ? 'bg-red-50 text-red-600 border border-red-100' :
@@ -191,7 +191,7 @@ function LawyerInvoices() {
                          {inv.status}
                        </span>
                      </td>
-                     <td className="px-3 py-3">
+                     <td className="px-2 py-2.5">
                        <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                          <button 
                           onClick={() => { setSelectedInvoice(inv); setIsViewModalOpen(true); }}
