@@ -376,7 +376,10 @@ function LawyerDocuments() {
               
               <div className="pt-2">
                 <button 
-                  onClick={() => setIsHistoryModalOpen(true)}
+                  onClick={() => {
+                    setIsHistoryModalOpen(true);
+                    setSelectedDocument(null);
+                  }}
                   className="text-[12px] font-bold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1"
                 >
                   <MoreVertical className="h-4 w-4" /> View Version History

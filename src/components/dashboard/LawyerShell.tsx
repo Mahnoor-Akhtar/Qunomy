@@ -39,7 +39,7 @@ export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: t
   { key: "hearings", label: "Hearings & Calendar", to: "/lawyer-hearings", icon: Calendar },
   { key: "clients", label: "Clients", to: "/lawyer-clients", icon: Users },
   { key: "documents", label: "Documents", to: "/lawyer-documents", icon: FileText },
-  { key: "team", label: "Team", to: "/lawyer-dashboard", icon: Users2 },
+  { key: "team", label: "Team", to: "/lawyer-team", icon: Users2 },
   { key: "invoices", label: "Invoices & Billing", to: "/lawyer-dashboard", icon: Receipt },
   { key: "notifications", label: "Notifications", to: "/lawyer-dashboard", icon: Bell },
   { key: "reports", label: "Reports", to: "/lawyer-dashboard", icon: BarChart2 },

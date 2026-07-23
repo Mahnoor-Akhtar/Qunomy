@@ -20,6 +20,7 @@ import { Route as LawyerClientsNewRouteImport } from './routes/lawyer-clients-ne
 import { Route as LawyerDashboardRouteImport } from './routes/lawyer-dashboard'
 import { Route as LawyerDocumentsRouteImport } from './routes/lawyer-documents'
 import { Route as LawyerHearingsRouteImport } from './routes/lawyer-hearings'
+import { Route as LawyerTeamRouteImport } from './routes/lawyer-team'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SigninRouteImport } from './routes/signin'
@@ -87,6 +88,11 @@ const LawyerDocumentsRoute = LawyerDocumentsRouteImport.update({
 const LawyerHearingsRoute = LawyerHearingsRouteImport.update({
   id: '/lawyer-hearings',
   path: '/lawyer-hearings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LawyerTeamRoute = LawyerTeamRouteImport.update({
+  id: '/lawyer-team',
+  path: '/lawyer-team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportsRoute = ReportsRouteImport.update({
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
   '/signin': typeof SigninRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
   '/signin': typeof SigninRoute
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/lawyer-dashboard': typeof LawyerDashboardRoute
   '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
+  '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
   '/signin': typeof SigninRoute
@@ -249,6 +258,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-team'
     | '/reports'
     | '/settings'
     | '/signin'
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-team'
     | '/reports'
     | '/settings'
     | '/signin'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/lawyer-dashboard'
     | '/lawyer-documents'
     | '/lawyer-hearings'
+    | '/lawyer-team'
     | '/reports'
     | '/settings'
     | '/signin'
@@ -328,6 +340,7 @@ export interface RootRouteChildren {
   LawyerDashboardRoute: typeof LawyerDashboardRoute
   LawyerDocumentsRoute: typeof LawyerDocumentsRoute
   LawyerHearingsRoute: typeof LawyerHearingsRoute
+  LawyerTeamRoute: typeof LawyerTeamRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
   SigninRoute: typeof SigninRoute
@@ -419,6 +432,13 @@ declare module '@tanstack/react-router' {
       path: '/lawyer-hearings'
       fullPath: '/lawyer-hearings'
       preLoaderRoute: typeof LawyerHearingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lawyer-team': {
+      id: '/lawyer-team'
+      path: '/lawyer-team'
+      fullPath: '/lawyer-team'
+      preLoaderRoute: typeof LawyerTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reports': {
@@ -537,6 +557,7 @@ const rootRouteChildren: RootRouteChildren = {
   LawyerDashboardRoute: LawyerDashboardRoute,
   LawyerDocumentsRoute: LawyerDocumentsRoute,
   LawyerHearingsRoute: LawyerHearingsRoute,
+  LawyerTeamRoute: LawyerTeamRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
   SigninRoute: SigninRoute,
