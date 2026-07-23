@@ -22,6 +22,7 @@ import { Route as LawyerDocumentsRouteImport } from './routes/lawyer-documents'
 import { Route as LawyerHearingsRouteImport } from './routes/lawyer-hearings'
 import { Route as LawyerInvoicesRouteImport } from './routes/lawyer-invoices'
 import { Route as LawyerNotificationsRouteImport } from './routes/lawyer-notifications'
+import { Route as LawyerReportsRouteImport } from './routes/lawyer-reports'
 import { Route as LawyerTeamRouteImport } from './routes/lawyer-team'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -100,6 +101,11 @@ const LawyerInvoicesRoute = LawyerInvoicesRouteImport.update({
 const LawyerNotificationsRoute = LawyerNotificationsRouteImport.update({
   id: '/lawyer-notifications',
   path: '/lawyer-notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LawyerReportsRoute = LawyerReportsRouteImport.update({
+  id: '/lawyer-reports',
+  path: '/lawyer-reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LawyerTeamRoute = LawyerTeamRouteImport.update({
@@ -188,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
+  '/lawyer-reports': typeof LawyerReportsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -217,6 +224,7 @@ export interface FileRoutesByTo {
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
+  '/lawyer-reports': typeof LawyerReportsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -247,6 +255,7 @@ export interface FileRoutesById {
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
+  '/lawyer-reports': typeof LawyerReportsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -278,6 +287,7 @@ export interface FileRouteTypes {
     | '/lawyer-hearings'
     | '/lawyer-invoices'
     | '/lawyer-notifications'
+    | '/lawyer-reports'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
     | '/lawyer-hearings'
     | '/lawyer-invoices'
     | '/lawyer-notifications'
+    | '/lawyer-reports'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/lawyer-hearings'
     | '/lawyer-invoices'
     | '/lawyer-notifications'
+    | '/lawyer-reports'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -366,6 +378,7 @@ export interface RootRouteChildren {
   LawyerHearingsRoute: typeof LawyerHearingsRoute
   LawyerInvoicesRoute: typeof LawyerInvoicesRoute
   LawyerNotificationsRoute: typeof LawyerNotificationsRoute
+  LawyerReportsRoute: typeof LawyerReportsRoute
   LawyerTeamRoute: typeof LawyerTeamRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
@@ -472,6 +485,13 @@ declare module '@tanstack/react-router' {
       path: '/lawyer-notifications'
       fullPath: '/lawyer-notifications'
       preLoaderRoute: typeof LawyerNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lawyer-reports': {
+      id: '/lawyer-reports'
+      path: '/lawyer-reports'
+      fullPath: '/lawyer-reports'
+      preLoaderRoute: typeof LawyerReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lawyer-team': {
@@ -599,6 +619,7 @@ const rootRouteChildren: RootRouteChildren = {
   LawyerHearingsRoute: LawyerHearingsRoute,
   LawyerInvoicesRoute: LawyerInvoicesRoute,
   LawyerNotificationsRoute: LawyerNotificationsRoute,
+  LawyerReportsRoute: LawyerReportsRoute,
   LawyerTeamRoute: LawyerTeamRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
