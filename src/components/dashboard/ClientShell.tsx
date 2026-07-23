@@ -4,56 +4,42 @@ import {
   LayoutDashboard,
   Briefcase,
   Calendar,
-  Users,
   FileText,
-  Users2,
   Receipt,
-  Bell,
-  BarChart2,
-  Settings,
-  Search,
-  Sun,
+  MessageSquare,
+  User,
+  LifeBuoy,
   ChevronDown,
-  LogOut,
-  Plus,
+  Sun,
   Scale
 } from "lucide-react";
-import { toast } from "sonner";
 
-export type LawyerNavKey =
+export type ClientNavKey =
   | "dashboard"
   | "cases"
   | "hearings"
-  | "clients"
   | "documents"
-  | "team"
   | "invoices"
-  | "notifications"
-  | "reports"
-  | "settings";
+  | "messages"
+  | "profile"
+  | "support";
 
-export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: typeof LayoutDashboard }[] = [
-  { key: "dashboard", label: "Dashboard", to: "/lawyer-dashboard", icon: LayoutDashboard },
-  { key: "cases", label: "Cases", to: "/lawyer-cases", icon: Briefcase },
-  { key: "hearings", label: "Hearings & Calendar", to: "/lawyer-hearings", icon: Calendar },
-  { key: "clients", label: "Clients", to: "/lawyer-clients", icon: Users },
-  { key: "documents", label: "Documents", to: "/lawyer-documents", icon: FileText },
-  { key: "team", label: "Team", to: "/lawyer-team", icon: Users2 },
-  { key: "invoices", label: "Invoices & Billing", to: "/lawyer-invoices", icon: Receipt },
-  { key: "notifications", label: "Notifications", to: "/lawyer-notifications", icon: Bell },
-  { key: "reports", label: "Reports", to: "/lawyer-reports", icon: BarChart2 },
-  { key: "settings", label: "Settings", to: "/lawyer-settings", icon: Settings },
+export const CLIENT_NAV: { key: ClientNavKey; label: string; to: string; icon: typeof LayoutDashboard }[] = [
+  { key: "dashboard", label: "Dashboard", to: "/client-dashboard", icon: LayoutDashboard },
+  { key: "cases", label: "My Cases", to: "/client-cases", icon: Briefcase },
+  { key: "hearings", label: "Hearings", to: "/client-hearings", icon: Calendar },
+  { key: "documents", label: "Documents", to: "/client-documents", icon: FileText },
+  { key: "invoices", label: "Invoices & Payments", to: "/client-invoices", icon: Receipt },
+  { key: "messages", label: "Messages", to: "/client-messages", icon: MessageSquare },
+  { key: "profile", label: "My Profile", to: "/client-profile", icon: User },
+  { key: "support", label: "Support", to: "/client-support", icon: LifeBuoy },
 ];
 
-export default function LawyerShell({
+export default function ClientShell({
   active,
-  title,
-  subtitle,
   children,
 }: {
-  active: LawyerNavKey;
-  title?: string;
-  subtitle?: string;
+  active: ClientNavKey;
   children: ReactNode;
 }) {
   const navigate = useNavigate();
@@ -101,19 +87,14 @@ export default function LawyerShell({
         {/* Navigation */}
         <nav className="mt-2 flex-1 overflow-y-auto px-3">
           <ul className="flex flex-col gap-1">
-            {LAWYER_NAV.filter(item => {
-              if (user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com") {
-                if (item.key === "team" || item.key === "reports") return false;
-              }
-              return true;
-            }).map((item) => {
+            {CLIENT_NAV.map((item) => {
               const Icon = item.icon;
               const isActive = item.key === active;
               return (
                 <li key={item.key}>
                   <Link
                     to={item.to}
-                    className={`group flex w-full items-center gap-3 rounded-lg px-3 py-2 text-[13px] transition-all ${
+                    className={`group flex w-full items-center gap-3 rounded-lg px-3 py-1.5 text-[12px] transition-all ${
                       isActive
                         ? "bg-[#B8860B] text-[#14213D] font-semibold shadow-[0_6px_20px_-8px_rgba(184,134,11,0.8)]"
                         : "text-[#F5F0E6]/75 hover:bg-white/5 hover:text-[#F5F0E6]"
@@ -128,16 +109,14 @@ export default function LawyerShell({
           </ul>
         </nav>
 
-
-
         {/* User Profile */}
         <div className="flex items-center gap-3 border-t border-[#F5F0E6]/10 px-4 py-4">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#B8860B] text-sm font-semibold text-[#14213D]">
-            {(user?.name?.[0] ?? "A").toUpperCase()}
+            {(user?.name?.[0] ?? "C").toUpperCase()}
           </div>
           <div className="flex-1 leading-tight">
-            <div className="text-[13px] font-semibold text-[#F5F0E6]">{user?.name ?? "Haris"}</div>
-            <div className="text-[10px] text-[#F5F0E6]/50">{(user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com") ? "Member" : "Admin"}</div>
+            <div className="text-[13px] font-semibold text-[#F5F0E6]">{user?.name ?? "Client"}</div>
+            <div className="text-[10px] text-[#F5F0E6]/50">Client Portal</div>
           </div>
           <button
             onClick={logout}
@@ -159,16 +138,11 @@ export default function LawyerShell({
           </div>
           <div className="flex items-center gap-4">
             <button className="flex items-center gap-2 rounded-full border border-[#14213D]/15 bg-white px-4 py-2 text-[11px] font-semibold text-[#14213D] transition hover:border-[#B8860B] hover:text-[#B8860B]">
-              <span className="text-[#B8860B]">💬</span> WhatsApp Reminders
+              <span className="text-[#B8860B]">💬</span> Message My Lawyer
             </button>
             <button className="flex h-9 w-9 items-center justify-center rounded-full border border-[#14213D]/15 bg-white text-[#14213D] transition hover:border-[#B8860B] hover:text-[#B8860B]">
               <Sun className="h-4 w-4" />
             </button>
-            <div className="flex items-center gap-2 rounded-full border border-[#14213D]/15 bg-white px-4 py-2 text-[11px] font-semibold text-[#14213D] cursor-pointer transition hover:border-[#B8860B]">
-              <Scale className="h-3.5 w-3.5 text-[#B8860B]" />
-              <span className="font-bold" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qanomy</span>
-              <ChevronDown className="h-3 w-3 text-[#1F1F1F]/50" />
-            </div>
           </div>
         </header>
 

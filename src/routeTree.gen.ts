@@ -11,6 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuditLogsRouteImport } from './routes/audit-logs'
+import { Route as ClientCasesRouteImport } from './routes/client-cases'
+import { Route as ClientDashboardRouteImport } from './routes/client-dashboard'
+import { Route as ClientDocumentsRouteImport } from './routes/client-documents'
+import { Route as ClientHearingsRouteImport } from './routes/client-hearings'
+import { Route as ClientInvoicesRouteImport } from './routes/client-invoices'
+import { Route as ClientMessagesRouteImport } from './routes/client-messages'
+import { Route as ClientProfileRouteImport } from './routes/client-profile'
+import { Route as ClientSupportRouteImport } from './routes/client-support'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as FirmsRouteImport } from './routes/firms'
 import { Route as LawyerCasesRouteImport } from './routes/lawyer-cases'
@@ -32,6 +40,7 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SubscriptionsRouteImport } from './routes/subscriptions'
 import { Route as TicketsRouteImport } from './routes/tickets'
 import { Route as UsersRouteImport } from './routes/users'
+import { Route as ClientCaseDetailCaseIdRouteImport } from './routes/client-case-detail.$caseId'
 import { Route as FirmDetailFirmIdRouteImport } from './routes/firm-detail.$firmId'
 import { Route as FirmsFirmIdRouteImport } from './routes/firms.$firmId'
 import { Route as LawyerCaseDetailCaseIdRouteImport } from './routes/lawyer-case-detail.$caseId'
@@ -47,6 +56,46 @@ const IndexRoute = IndexRouteImport.update({
 const AuditLogsRoute = AuditLogsRouteImport.update({
   id: '/audit-logs',
   path: '/audit-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientCasesRoute = ClientCasesRouteImport.update({
+  id: '/client-cases',
+  path: '/client-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientDashboardRoute = ClientDashboardRouteImport.update({
+  id: '/client-dashboard',
+  path: '/client-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientDocumentsRoute = ClientDocumentsRouteImport.update({
+  id: '/client-documents',
+  path: '/client-documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientHearingsRoute = ClientHearingsRouteImport.update({
+  id: '/client-hearings',
+  path: '/client-hearings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientInvoicesRoute = ClientInvoicesRouteImport.update({
+  id: '/client-invoices',
+  path: '/client-invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientMessagesRoute = ClientMessagesRouteImport.update({
+  id: '/client-messages',
+  path: '/client-messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientProfileRoute = ClientProfileRouteImport.update({
+  id: '/client-profile',
+  path: '/client-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientSupportRoute = ClientSupportRouteImport.update({
+  id: '/client-support',
+  path: '/client-support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -154,6 +203,11 @@ const UsersRoute = UsersRouteImport.update({
   path: '/users',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClientCaseDetailCaseIdRoute = ClientCaseDetailCaseIdRouteImport.update({
+  id: '/client-case-detail/$caseId',
+  path: '/client-case-detail/$caseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FirmDetailFirmIdRoute = FirmDetailFirmIdRouteImport.update({
   id: '/firm-detail/$firmId',
   path: '/firm-detail/$firmId',
@@ -189,6 +243,14 @@ const UserDetailUserIdRoute = UserDetailUserIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/audit-logs': typeof AuditLogsRoute
+  '/client-cases': typeof ClientCasesRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/client-documents': typeof ClientDocumentsRoute
+  '/client-hearings': typeof ClientHearingsRoute
+  '/client-invoices': typeof ClientInvoicesRoute
+  '/client-messages': typeof ClientMessagesRoute
+  '/client-profile': typeof ClientProfileRoute
+  '/client-support': typeof ClientSupportRoute
   '/dashboard': typeof DashboardRoute
   '/firms': typeof FirmsRouteWithChildren
   '/lawyer-cases': typeof LawyerCasesRoute
@@ -210,6 +272,7 @@ export interface FileRoutesByFullPath {
   '/subscriptions': typeof SubscriptionsRoute
   '/tickets': typeof TicketsRoute
   '/users': typeof UsersRoute
+  '/client-case-detail/$caseId': typeof ClientCaseDetailCaseIdRoute
   '/firm-detail/$firmId': typeof FirmDetailFirmIdRoute
   '/firms/$firmId': typeof FirmsFirmIdRoute
   '/lawyer-case-detail/$caseId': typeof LawyerCaseDetailCaseIdRoute
@@ -220,6 +283,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/audit-logs': typeof AuditLogsRoute
+  '/client-cases': typeof ClientCasesRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/client-documents': typeof ClientDocumentsRoute
+  '/client-hearings': typeof ClientHearingsRoute
+  '/client-invoices': typeof ClientInvoicesRoute
+  '/client-messages': typeof ClientMessagesRoute
+  '/client-profile': typeof ClientProfileRoute
+  '/client-support': typeof ClientSupportRoute
   '/dashboard': typeof DashboardRoute
   '/firms': typeof FirmsRouteWithChildren
   '/lawyer-cases': typeof LawyerCasesRoute
@@ -241,6 +312,7 @@ export interface FileRoutesByTo {
   '/subscriptions': typeof SubscriptionsRoute
   '/tickets': typeof TicketsRoute
   '/users': typeof UsersRoute
+  '/client-case-detail/$caseId': typeof ClientCaseDetailCaseIdRoute
   '/firm-detail/$firmId': typeof FirmDetailFirmIdRoute
   '/firms/$firmId': typeof FirmsFirmIdRoute
   '/lawyer-case-detail/$caseId': typeof LawyerCaseDetailCaseIdRoute
@@ -252,6 +324,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/audit-logs': typeof AuditLogsRoute
+  '/client-cases': typeof ClientCasesRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/client-documents': typeof ClientDocumentsRoute
+  '/client-hearings': typeof ClientHearingsRoute
+  '/client-invoices': typeof ClientInvoicesRoute
+  '/client-messages': typeof ClientMessagesRoute
+  '/client-profile': typeof ClientProfileRoute
+  '/client-support': typeof ClientSupportRoute
   '/dashboard': typeof DashboardRoute
   '/firms': typeof FirmsRouteWithChildren
   '/lawyer-cases': typeof LawyerCasesRoute
@@ -273,6 +353,7 @@ export interface FileRoutesById {
   '/subscriptions': typeof SubscriptionsRoute
   '/tickets': typeof TicketsRoute
   '/users': typeof UsersRoute
+  '/client-case-detail/$caseId': typeof ClientCaseDetailCaseIdRoute
   '/firm-detail/$firmId': typeof FirmDetailFirmIdRoute
   '/firms/$firmId': typeof FirmsFirmIdRoute
   '/lawyer-case-detail/$caseId': typeof LawyerCaseDetailCaseIdRoute
@@ -285,6 +366,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/audit-logs'
+    | '/client-cases'
+    | '/client-dashboard'
+    | '/client-documents'
+    | '/client-hearings'
+    | '/client-invoices'
+    | '/client-messages'
+    | '/client-profile'
+    | '/client-support'
     | '/dashboard'
     | '/firms'
     | '/lawyer-cases'
@@ -306,6 +395,7 @@ export interface FileRouteTypes {
     | '/subscriptions'
     | '/tickets'
     | '/users'
+    | '/client-case-detail/$caseId'
     | '/firm-detail/$firmId'
     | '/firms/$firmId'
     | '/lawyer-case-detail/$caseId'
@@ -316,6 +406,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/audit-logs'
+    | '/client-cases'
+    | '/client-dashboard'
+    | '/client-documents'
+    | '/client-hearings'
+    | '/client-invoices'
+    | '/client-messages'
+    | '/client-profile'
+    | '/client-support'
     | '/dashboard'
     | '/firms'
     | '/lawyer-cases'
@@ -337,6 +435,7 @@ export interface FileRouteTypes {
     | '/subscriptions'
     | '/tickets'
     | '/users'
+    | '/client-case-detail/$caseId'
     | '/firm-detail/$firmId'
     | '/firms/$firmId'
     | '/lawyer-case-detail/$caseId'
@@ -347,6 +446,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/audit-logs'
+    | '/client-cases'
+    | '/client-dashboard'
+    | '/client-documents'
+    | '/client-hearings'
+    | '/client-invoices'
+    | '/client-messages'
+    | '/client-profile'
+    | '/client-support'
     | '/dashboard'
     | '/firms'
     | '/lawyer-cases'
@@ -368,6 +475,7 @@ export interface FileRouteTypes {
     | '/subscriptions'
     | '/tickets'
     | '/users'
+    | '/client-case-detail/$caseId'
     | '/firm-detail/$firmId'
     | '/firms/$firmId'
     | '/lawyer-case-detail/$caseId'
@@ -379,6 +487,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuditLogsRoute: typeof AuditLogsRoute
+  ClientCasesRoute: typeof ClientCasesRoute
+  ClientDashboardRoute: typeof ClientDashboardRoute
+  ClientDocumentsRoute: typeof ClientDocumentsRoute
+  ClientHearingsRoute: typeof ClientHearingsRoute
+  ClientInvoicesRoute: typeof ClientInvoicesRoute
+  ClientMessagesRoute: typeof ClientMessagesRoute
+  ClientProfileRoute: typeof ClientProfileRoute
+  ClientSupportRoute: typeof ClientSupportRoute
   DashboardRoute: typeof DashboardRoute
   FirmsRoute: typeof FirmsRouteWithChildren
   LawyerCasesRoute: typeof LawyerCasesRoute
@@ -400,6 +516,7 @@ export interface RootRouteChildren {
   SubscriptionsRoute: typeof SubscriptionsRoute
   TicketsRoute: typeof TicketsRoute
   UsersRoute: typeof UsersRoute
+  ClientCaseDetailCaseIdRoute: typeof ClientCaseDetailCaseIdRoute
   FirmDetailFirmIdRoute: typeof FirmDetailFirmIdRoute
   LawyerCaseDetailCaseIdRoute: typeof LawyerCaseDetailCaseIdRoute
   LawyerClientDetailClientIdRoute: typeof LawyerClientDetailClientIdRoute
@@ -421,6 +538,62 @@ declare module '@tanstack/react-router' {
       path: '/audit-logs'
       fullPath: '/audit-logs'
       preLoaderRoute: typeof AuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-cases': {
+      id: '/client-cases'
+      path: '/client-cases'
+      fullPath: '/client-cases'
+      preLoaderRoute: typeof ClientCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-dashboard': {
+      id: '/client-dashboard'
+      path: '/client-dashboard'
+      fullPath: '/client-dashboard'
+      preLoaderRoute: typeof ClientDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-documents': {
+      id: '/client-documents'
+      path: '/client-documents'
+      fullPath: '/client-documents'
+      preLoaderRoute: typeof ClientDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-hearings': {
+      id: '/client-hearings'
+      path: '/client-hearings'
+      fullPath: '/client-hearings'
+      preLoaderRoute: typeof ClientHearingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-invoices': {
+      id: '/client-invoices'
+      path: '/client-invoices'
+      fullPath: '/client-invoices'
+      preLoaderRoute: typeof ClientInvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-messages': {
+      id: '/client-messages'
+      path: '/client-messages'
+      fullPath: '/client-messages'
+      preLoaderRoute: typeof ClientMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-profile': {
+      id: '/client-profile'
+      path: '/client-profile'
+      fullPath: '/client-profile'
+      preLoaderRoute: typeof ClientProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-support': {
+      id: '/client-support'
+      path: '/client-support'
+      fullPath: '/client-support'
+      preLoaderRoute: typeof ClientSupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -570,6 +743,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/client-case-detail/$caseId': {
+      id: '/client-case-detail/$caseId'
+      path: '/client-case-detail/$caseId'
+      fullPath: '/client-case-detail/$caseId'
+      preLoaderRoute: typeof ClientCaseDetailCaseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/firm-detail/$firmId': {
       id: '/firm-detail/$firmId'
       path: '/firm-detail/$firmId'
@@ -628,6 +808,14 @@ const FirmsRouteWithChildren = FirmsRoute._addFileChildren(FirmsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuditLogsRoute: AuditLogsRoute,
+  ClientCasesRoute: ClientCasesRoute,
+  ClientDashboardRoute: ClientDashboardRoute,
+  ClientDocumentsRoute: ClientDocumentsRoute,
+  ClientHearingsRoute: ClientHearingsRoute,
+  ClientInvoicesRoute: ClientInvoicesRoute,
+  ClientMessagesRoute: ClientMessagesRoute,
+  ClientProfileRoute: ClientProfileRoute,
+  ClientSupportRoute: ClientSupportRoute,
   DashboardRoute: DashboardRoute,
   FirmsRoute: FirmsRouteWithChildren,
   LawyerCasesRoute: LawyerCasesRoute,
@@ -649,6 +837,7 @@ const rootRouteChildren: RootRouteChildren = {
   SubscriptionsRoute: SubscriptionsRoute,
   TicketsRoute: TicketsRoute,
   UsersRoute: UsersRoute,
+  ClientCaseDetailCaseIdRoute: ClientCaseDetailCaseIdRoute,
   FirmDetailFirmIdRoute: FirmDetailFirmIdRoute,
   LawyerCaseDetailCaseIdRoute: LawyerCaseDetailCaseIdRoute,
   LawyerClientDetailClientIdRoute: LawyerClientDetailClientIdRoute,

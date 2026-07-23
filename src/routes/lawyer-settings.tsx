@@ -30,7 +30,7 @@ function LawyerSettings() {
       if (raw) setUser(JSON.parse(raw));
     } catch {}
   }, []);
-  const isMember = user?.email === "ijaz@gmail.com";
+  const isMember = user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com";
 
   const handleUpgradeRequest = () => {
     toast.success("Upgrade request sent successfully!", {

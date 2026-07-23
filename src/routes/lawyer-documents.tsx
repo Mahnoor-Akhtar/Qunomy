@@ -108,9 +108,10 @@ function LawyerDocuments() {
       if (raw) setUser(JSON.parse(raw));
     } catch {}
   }, []);
-  const isMember = user?.email === "ijaz@gmail.com";
+  const isMember = user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com";
+  const isRizwan = user?.email === "rizwan@gmail.com";
   
-  const displayCases = isMember ? MOCK_CASES.slice(0, 2) : MOCK_CASES;
+  const displayCases = isMember ? (isRizwan ? MOCK_CASES.slice(2, 4) : MOCK_CASES.slice(0, 2)) : MOCK_CASES;
 
   return (
     <LawyerShell active="documents">

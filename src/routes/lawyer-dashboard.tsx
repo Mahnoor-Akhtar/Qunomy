@@ -32,9 +32,12 @@ function LawyerDashboard() {
       if (raw) setUser(JSON.parse(raw));
     } catch {}
   }, []);
-  const isMember = user?.email === "ijaz@gmail.com";
+  const isMember = user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com";
+  const isRizwan = user?.email === "rizwan@gmail.com";
 
-  const hearingsData = isMember ? [
+  const hearingsData = isRizwan ? [
+    { time: "09:30 AM", title: "Zainab Khan vs Waseem Khan", num: "Family 101/2024", court: "Family Court, Lahore", judge: "Judge: Sana Tariq", room: "Court Room 4" }
+  ] : isMember ? [
     { time: "10:00 AM", title: "Muhammad Ahmad vs State", num: "Criminal Case No. 123/2024", court: "Sessions Court, Lahore", judge: "Judge: M. Aslam Khan", room: "Court Room 3" },
     { time: "01:00 PM", title: "Fatima Bibi vs Asif Khan", num: "Family Case No. 789/2024", court: "Family Court, Lahore", judge: "Judge: Farah Naz", room: "Court Room 2" }
   ] : [
@@ -73,7 +76,7 @@ function LawyerDashboard() {
                 {isMember ? "My Active Cases" : "Total Active Cases"}
               </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "24" : "326"}</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? (isRizwan ? "8" : "24") : "326"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-emerald-600">
@@ -92,7 +95,7 @@ function LawyerDashboard() {
                 {isMember ? "My Clients" : "Total Clients"}
               </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "12" : "152"}</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? (isRizwan ? "5" : "12") : "152"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-[#1F1F1F]/40">
@@ -111,7 +114,7 @@ function LawyerDashboard() {
                 {isMember ? "My Pending Invoices" : "Pending Invoices"}
               </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "3" : "48"}</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? (isRizwan ? "1" : "3") : "48"}</div>
             </div>
           </div>
           <div className="mt-2 text-[10px] font-medium text-[#1F1F1F]/50">
@@ -130,7 +133,7 @@ function LawyerDashboard() {
                 {isMember ? "My Today's Hearings" : "Today's Hearings"}
               </div>
               <div className="mt-0.5 truncate text-lg font-bold text-[#14213D]"
-                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? "2" : "15"}</div>
+                   style={{ fontFamily: "'Libre Baskerville', serif" }}>{isMember ? (isRizwan ? "1" : "2") : "15"}</div>
             </div>
           </div>
           <button className="mt-2 text-[10px] font-medium text-blue-600 hover:text-[#14213D] underline">

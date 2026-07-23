@@ -362,8 +362,116 @@ function TeamPage() {
                     </p>
                   </div>
                 </div>
-
               </div>
+
+              {/* Permissions Section */}
+              <h3 className="text-[15px] font-bold text-[#14213D] mb-6 mt-8 pt-8 border-t border-[#14213D]/10">Portal Permissions</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                {/* Permissions Left Column */}
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-[13px] font-bold text-[#14213D] mb-3">Cases</div>
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">View Cases</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Add / Edit Cases</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Delete Cases</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[13px] font-bold text-[#14213D] mb-3 mt-6">Hearings</div>
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">View Hearings</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Add / Edit Hearings</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Mark Hearing Done</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Permissions Right Column */}
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-[13px] font-bold text-[#14213D] mb-3">Documents</div>
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">View Documents</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Upload Documents</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Delete Documents</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[13px] font-bold text-[#14213D] mb-3 mt-6">Billing & Clients</div>
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">View Invoices</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border border-[#14213D]/20 flex items-center justify-center transition-colors bg-white hover:border-[#14213D]/40"></div>
+                        <span className="text-[13px] font-medium text-[#1F1F1F]/60">Create Invoices</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border flex items-center justify-center transition-colors bg-emerald-600 border-emerald-600 shadow-sm">
+                          <Check className="h-3.5 w-3.5 text-white" />
+                        </div>
+                        <span className="text-[13px] font-bold text-[#14213D]">Add Clients</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className="h-5 w-5 rounded border border-[#14213D]/20 flex items-center justify-center transition-colors bg-white hover:border-[#14213D]/40"></div>
+                        <span className="text-[13px] font-medium text-[#1F1F1F]/60">Delete Clients</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <div className="p-6 border-t border-[#14213D]/10 flex justify-end gap-3 bg-white">

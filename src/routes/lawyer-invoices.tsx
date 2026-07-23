@@ -46,7 +46,8 @@ function LawyerInvoices() {
       if (raw) setUser(JSON.parse(raw));
     } catch {}
   }, []);
-  const isMember = user?.email === "ijaz@gmail.com";
+  const isMember = user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com";
+  const isRizwan = user?.email === "rizwan@gmail.com";
   // Simulate permission for member
   const canCreateInvoice = !isMember; // change to true to simulate permission
 
@@ -186,7 +187,7 @@ function LawyerInvoices() {
                  </tr>
                </thead>
                <tbody>
-                 {displayInvoices.map((inv, idx) => (
+                 {(isMember ? (isRizwan ? MOCK_INVOICES.slice(2, 4) : MOCK_INVOICES.slice(0, 2)) : MOCK_INVOICES).map((inv, idx) => (
                    <tr key={inv.id} className="border-b border-[#14213D]/5 hover:bg-gray-50/80 transition-all duration-200 group">
                      <td className="px-2 py-2.5 text-[10px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
                      <td className="px-2 py-2.5 text-[10px] font-bold text-[#14213D] whitespace-nowrap">{inv.id}</td>

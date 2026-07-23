@@ -53,7 +53,7 @@ function LawyerNotifications() {
       if (raw) setUser(JSON.parse(raw));
     } catch {}
   }, []);
-  const isMember = user?.email === "ijaz@gmail.com";
+  const isMember = user?.email === "ijaz@gmail.com" || user?.email === "rizwan@gmail.com";
 
   return (
     <LawyerShell active="notifications">
