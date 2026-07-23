@@ -1,0 +1,74 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  overflow-x: visible;
+}
+
+.scroll-stack-inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 0 1.5rem 12rem;
+}
+
+@media (max-width: 768px) {
+  .scroll-stack-inner {
+    padding: 0 1.25rem 8rem;
+  }
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 60px -20px rgba(20, 33, 61, 0.35);
+  position: sticky;
+  top: var(--stack-top-offset, 112px);
+  z-index: var(--stack-z, 10);
+  height: clamp(19rem, 34vw, 22rem);
+  width: 100%;
+  margin: 0 0 var(--stack-gap, 56px);
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0) scale(var(--stack-scale, 1));
+}
+
+@media (max-width: 1023px) {
+  .scroll-stack-scroller .scroll-stack-card {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    height: auto;
+    min-height: 20rem;
+    padding: 2rem;
+    border-radius: 28px;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .scroll-stack-card {
+    height: auto;
+    min-height: 23rem;
+    padding: 1.5rem;
+  }
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
+
+.challenge-card {
+  background: linear-gradient(135deg, #14213D 0%, #1a2a4d 100%);
+  color: #F5F0E6;
+}
