@@ -20,7 +20,7 @@ import AdminShell from "@/components/dashboard/AdminShell";
 export const Route = createFileRoute("/audit-logs")({
   head: () => ({
     meta: [
-      { title: "Audit Logs — Qunomy Platform" },
+      { title: "Audit Logs — Qanomy Platform" },
       { name: "description", content: "Track all important actions performed across the platform." },
     ],
   }),

@@ -71,7 +71,7 @@ export default function Challenges() {
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Running a modern legal practice means fighting battles outside the courtroom too. Here's what
-          Qunomy is built to solve.
+          Qanomy is built to solve.
         </p>
       </div>
 

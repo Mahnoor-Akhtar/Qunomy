@@ -15,7 +15,7 @@ import { exportToCSV } from "@/utils/export";
 export const Route = createFileRoute("/firm-detail/$firmId")({
   head: () => ({
     meta: [
-      { title: "Firm Details — Qunomy" },
+      { title: "Firm Details — Qanomy" },
       { name: "description", content: "View detailed information about a registered law firm." },
     ],
   }),

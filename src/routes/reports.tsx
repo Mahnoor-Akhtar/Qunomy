@@ -36,13 +36,13 @@ import { exportToCSV } from "@/utils/export";
 export const Route = createFileRoute("/reports")({
   head: () => ({
     meta: [
-      { title: "Analytics Overview — Qunomy Platform" },
+      { title: "Analytics Overview — Qanomy Platform" },
       {
         name: "description",
         content:
-          "Platform-wide insights and performance metrics for Qunomy administrators.",
+          "Platform-wide insights and performance metrics for Qanomy administrators.",
       },
-      { property: "og:title", content: "Analytics Overview — Qunomy" },
+      { property: "og:title", content: "Analytics Overview — Qanomy" },
     ],
   }),
   component: ReportsPage,

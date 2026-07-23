@@ -149,7 +149,7 @@ export default function Solutions() {
             className="mt-5 text-base leading-relaxed text-[#5C7A99]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Explore how Qunomy adapts to the way your chambers actually work.
+            Explore how Qanomy adapts to the way your chambers actually work.
           </p>
         </div>
 

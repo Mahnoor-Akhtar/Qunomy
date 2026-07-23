@@ -707,7 +707,7 @@ function PagerBtn({ children, active }: { children: React.ReactNode; active?: bo
 export const Route = createFileRoute("/subscriptions")({
   head: () => ({
     meta: [
-      { title: "Subscriptions & Billing — Qunomy" },
+      { title: "Subscriptions & Billing — Qanomy" },
       { name: "description", content: "Manage subscription plans, pricing and all billing transactions." },
     ],
   }),

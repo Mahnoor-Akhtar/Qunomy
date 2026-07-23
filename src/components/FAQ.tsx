@@ -14,28 +14,28 @@ const CATEGORIES: { id: Category; label: string; icon: typeof LayoutGrid }[] = [
 
 const FAQS: { q: string; a: string; category: Exclude<Category, "all"> }[] = [
   {
-    q: "What is Qunomy?",
-    a: "Qunomy is a smart digital case management platform built for modern lawyers and law firms. It helps you manage cases, clients, tasks, documents, and reminders all in one place.",
+    q: "What is Qanomy?",
+    a: "Qanomy is a smart digital case management platform built for modern lawyers and law firms. It helps you manage cases, clients, tasks, documents, and reminders all in one place.",
     category: "general",
   },
   {
-    q: "Who is Qunomy designed for?",
-    a: "Qunomy is designed for criminal lawyers, boutique law firms, chamber advocates, and legal teams across Pakistan who want an organized, automated workflow.",
+    q: "Who is Qanomy designed for?",
+    a: "Qanomy is designed for criminal lawyers, boutique law firms, chamber advocates, and legal teams across Pakistan who want an organized, automated workflow.",
     category: "general",
   },
   {
-    q: "Can I access Qunomy on my mobile device?",
-    a: "Yes. Qunomy works seamlessly on mobile browsers and offers native-quality experiences on both iOS and Android through our responsive web app.",
+    q: "Can I access Qanomy on my mobile device?",
+    a: "Yes. Qanomy works seamlessly on mobile browsers and offers native-quality experiences on both iOS and Android through our responsive web app.",
     category: "features",
   },
   {
-    q: "How secure is my data with Qunomy?",
+    q: "How secure is my data with Qanomy?",
     a: "Your data is encrypted at rest and in transit. We follow industry-standard security protocols, run regular audits, and never share your client information with third parties.",
     category: "security",
   },
   {
-    q: "Can I integrate Qunomy with other tools?",
-    a: "Yes. Qunomy connects with Google Calendar, WhatsApp for notifications, cloud storage services, and popular accounting tools through our growing integrations library.",
+    q: "Can I integrate Qanomy with other tools?",
+    a: "Yes. Qanomy connects with Google Calendar, WhatsApp for notifications, cloud storage services, and popular accounting tools through our growing integrations library.",
     category: "features",
   },
   {
@@ -84,7 +84,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </ScrollReveal>
           <p className="mx-auto mt-4 max-w-xl text-sm text-[#1F1F1F]/60 sm:text-base">
-            Everything you need to know about Qunomy and how it works.
+            Everything you need to know about Qanomy and how it works.
           </p>
         </div>
 
@@ -209,7 +209,7 @@ export default function FAQ() {
                 </div>
 
                 <a
-                  href="mailto:hello@qunomy.com"
+                  href="mailto:hello@qanomy.com"
                   className="flex w-full items-center justify-center gap-2 rounded-full border border-[#F5F0E6]/25 px-5 py-3 text-sm font-medium text-[#F5F0E6] transition-all duration-300 hover:border-[#B8860B] hover:text-[#B8860B]"
                 >
                   <Mail className="h-4 w-4" />

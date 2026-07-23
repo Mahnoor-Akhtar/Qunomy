@@ -65,7 +65,7 @@ function TeamPage() {
            
            <div className="h-9 px-3 flex items-center gap-2 rounded-full bg-white border border-[#14213D]/10 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors">
               <Scale className="h-4 w-4 text-[#B8860B]" />
-              <span className="text-[12px] font-bold text-[#14213D]" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qunomy</span>
+              <span className="text-[12px] font-bold text-[#14213D]" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qanomy</span>
               <div className="h-3 w-[1px] bg-[#14213D]/10 mx-1"></div>
               <svg className="w-3 h-3 text-[#1F1F1F]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
            </div>

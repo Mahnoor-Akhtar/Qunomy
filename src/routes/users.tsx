@@ -31,8 +31,8 @@ import AdminShell from "@/components/dashboard/AdminShell";
 export const Route = createFileRoute("/users")({
   head: () => ({
     meta: [
-      { title: "Global Users — Qunomy Platform" },
-      { name: "description", content: "Search and manage users across all firms on the Qunomy platform." },
+      { title: "Global Users — Qanomy Platform" },
+      { name: "description", content: "Search and manage users across all firms on the Qanomy platform." },
     ],
   }),
   component: GlobalUsersPage,

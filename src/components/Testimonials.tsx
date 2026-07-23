@@ -4,7 +4,7 @@ import { Quote, Star, ChevronLeft, ChevronRight, Scale, Users, Briefcase, Clock,
 type T = { name: string; role: string; city: string; quote: string; avatar: string };
 
 const testimonials: T[] = [
-  { name: "Ahmed Raza Khan", role: "Criminal Advocate", city: "Lahore", quote: "Qunomy ne meri practice badal di. Hearing dates ka koi tension nahi — automated reminders time par milte hain.", avatar: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
+  { name: "Ahmed Raza Khan", role: "Criminal Advocate", city: "Lahore", quote: "Qanomy ne meri practice badal di. Hearing dates ka koi tension nahi — automated reminders time par milte hain.", avatar: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Ayesha Siddiqui", role: "Partner, Siddiqui Law", city: "Karachi", quote: "Client management itna smooth pehle kabhi nahi tha. Team ki productivity double ho gayi hai.", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Bilal Hussain", role: "Chamber Advocate", city: "Islamabad", quote: "Court integration feature is a game changer. Cause list directly mere dashboard par aati hai.", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Fatima Zahra", role: "Corporate Counsel", city: "Rawalpindi", quote: "Case diary maintain karna ab minutes ka kaam hai. Interface bilkul intuitive hai.", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
@@ -12,7 +12,7 @@ const testimonials: T[] = [
   { name: "Zainab Ali", role: "Family Law Attorney", city: "Multan", quote: "WhatsApp aur SMS notifications se clients hamesha updated rehte hain. Trust build karne mein madad ki.", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Hassan Sheikh", role: "Boutique Firm Owner", city: "Peshawar", quote: "Chhoti firm ke liye perfect solution. Cost effective aur enterprise-grade features.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Sana Malik", role: "Litigation Lawyer", city: "Sialkot", quote: "Deadlines miss karne ka dar khatam. Ab focus sirf case pe hota hai, admin par nahi.", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
-  { name: "Imran Qureshi", role: "High Court Advocate", city: "Lahore", quote: "Document management aur case history ek jagah — brilliant execution by the Qunomy team.", avatar: "https://images.unsplash.com/photo-1615109398623-88346a601842?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
+  { name: "Imran Qureshi", role: "High Court Advocate", city: "Lahore", quote: "Document management aur case history ek jagah — brilliant execution by the Qanomy team.", avatar: "https://images.unsplash.com/photo-1615109398623-88346a601842?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
   { name: "Hira Nawaz", role: "Legal Consultant", city: "Karachi", quote: "Simple, elegant, aur powerful. Har lawyer ko yeh try karna chahiye.", avatar: "https://images.unsplash.com/photo-1592621385612-4d7129426394?w=400&h=400&fit=crop&crop=faces&auto=format&q=80" },
 ];
 
@@ -93,7 +93,7 @@ function Card({ t, active }: { t: T; active: boolean }) {
 }
 
 const stats = [
-  { icon: Users, value: "2500+", label: "Lawyers Trust Qunomy" },
+  { icon: Users, value: "2500+", label: "Lawyers Trust Qanomy" },
   { icon: Briefcase, value: "15,000+", label: "Cases Managed" },
   { icon: Clock, value: "2M+", label: "Hours Saved" },
   { icon: StarIcon, value: "4.9/5", label: "Average Rating" },
@@ -157,7 +157,7 @@ export default function Testimonials() {
             className="mt-5 text-sm leading-relaxed text-[#5C7A99] sm:text-base"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Real experiences from lawyers who rely on Qunomy to deliver results every day.
+            Real experiences from lawyers who rely on Qanomy to deliver results every day.
           </p>
         </div>
 

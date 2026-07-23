@@ -24,7 +24,7 @@ import AdminShell from "@/components/dashboard/AdminShell";
 export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
-      { title: "Master Settings — Qunomy Platform" },
+      { title: "Master Settings — Qanomy Platform" },
       { name: "description", content: "Manage platform master data, templates and feature availability." },
     ],
   }),

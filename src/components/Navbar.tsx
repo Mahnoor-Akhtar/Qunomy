@@ -37,7 +37,7 @@ export default function Navbar() {
         <Link to="/" className="group flex shrink-0 items-center gap-3">
           <img
             src={logo}
-            alt="Qunomy"
+            alt="Qanomy"
             className="h-11 w-auto transition-transform duration-300 group-hover:scale-105"
           />
           <span className="flex flex-col leading-none">
@@ -45,7 +45,7 @@ export default function Navbar() {
               className="text-xl font-bold tracking-[0.14em] text-[#F5F0E6]"
               style={{ fontFamily: "'Libre Baskerville', serif" }}
             >
-              QUNOMY
+              QANOMY
             </span>
             <span
               className="mt-1 text-[9px] font-medium tracking-[0.32em] text-[#B8860B]"

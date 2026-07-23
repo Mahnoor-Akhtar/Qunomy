@@ -121,13 +121,13 @@ export default function Footer() {
             }`}
           >
             <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logo} alt="Qunomy" className="h-11 w-auto" />
+              <img src={logo} alt="Qanomy" className="h-11 w-auto" />
               <div className="flex flex-col leading-none">
                 <span
                   className="text-xl tracking-[0.18em] text-[#F5F0E6]"
                   style={{ fontFamily: "'Libre Baskerville', serif" }}
                 >
-                  QUNOMY
+                  QANOMY
                 </span>
                 <span className="mt-1.5 text-[9px] font-semibold uppercase tracking-[0.3em] text-[#B8860B]">
                   Legal Intelligence
@@ -255,7 +255,7 @@ export default function Footer() {
           }`}
         >
           <div className="text-xs text-[#F5F0E6]/55">
-            © {new Date().getFullYear()} <span className="text-[#B8860B]">Qunomy</span>. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-[#B8860B]">Qanomy</span>. All rights reserved.
           </div>
           <div className="flex items-center gap-2.5 text-xs text-[#F5F0E6]/70">
             <MapPin className="h-4 w-4 text-[#F5F0E6]/40" /> Lahore, Pakistan
@@ -264,7 +264,7 @@ export default function Footer() {
             <Phone className="h-4 w-4 text-[#F5F0E6]/40" /> +92 300 1234567
           </div>
           <div className="flex items-center gap-2.5 text-xs text-[#F5F0E6]/70">
-            <Mail className="h-4 w-4 text-[#F5F0E6]/40" /> hello@qunomy.com
+            <Mail className="h-4 w-4 text-[#F5F0E6]/40" /> hello@qanomy.com
           </div>
         </div>
       </div>

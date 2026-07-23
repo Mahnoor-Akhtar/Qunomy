@@ -9,10 +9,10 @@ import heroVideo from "@/assets/video.mp4";
 export const Route = createFileRoute("/signin")({
   head: () => ({
     meta: [
-      { title: "Sign in — Qunomy Legal Intelligence" },
-      { name: "description", content: "Sign in to your Qunomy account to manage cases, hearings and clients." },
-      { property: "og:title", content: "Sign in — Qunomy Legal Intelligence" },
-      { property: "og:description", content: "Access your Qunomy digital case diary." },
+      { title: "Sign in — Qanomy Legal Intelligence" },
+      { name: "description", content: "Sign in to your Qanomy account to manage cases, hearings and clients." },
+      { property: "og:title", content: "Sign in — Qanomy Legal Intelligence" },
+      { property: "og:description", content: "Access your Qanomy digital case diary." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -64,7 +64,7 @@ function SignIn() {
       if (email.trim().toLowerCase() === "mahnoor@gmail.com" && password === "12345678") {
         try {
           localStorage.setItem(
-            "qunomy_user",
+            "qanomy_user",
             JSON.stringify({ email: email.trim().toLowerCase(), name: "Mahnoor" }),
           );
         } catch {}
@@ -75,7 +75,7 @@ function SignIn() {
       if (email.trim().toLowerCase() === "haris@gmail.com" && password === "12345678") {
         try {
           localStorage.setItem(
-            "qunomy_user",
+            "qanomy_user",
             JSON.stringify({ email: email.trim().toLowerCase(), name: "Haris" }),
           );
         } catch {}
@@ -151,7 +151,7 @@ function SignIn() {
               className="mt-6 text-center text-3xl font-normal leading-[1.1] tracking-[-0.02em] text-[#F5F0E6] sm:text-4xl"
               style={{ fontFamily: "'Libre Baskerville', serif" }}
             >
-              Sign in to Qunomy<span className="text-[#B8860B]">.</span>
+              Sign in to Qanomy<span className="text-[#B8860B]">.</span>
             </h1>
             <p
               className="mt-3 text-center text-[11px] font-normal uppercase tracking-[0.3em] text-white/60"
@@ -283,7 +283,7 @@ function SignIn() {
             {/* Divider */}
             <div className="mt-6 flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-white/40">
               <span className="h-px flex-1 bg-[#F5F0E6]/15" />
-              New to Qunomy
+              New to Qanomy
               <span className="h-px flex-1 bg-[#F5F0E6]/15" />
             </div>
 

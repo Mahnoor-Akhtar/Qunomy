@@ -13,7 +13,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/ticket-detail/$ticketId")({
   head: () => ({
     meta: [
-      { title: "Ticket Details — Qunomy" },
+      { title: "Ticket Details — Qanomy" },
       { name: "description", content: "View and reply to support ticket." },
     ],
   }),

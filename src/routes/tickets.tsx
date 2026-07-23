@@ -26,7 +26,7 @@ import { useNavigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/tickets")({
   head: () => ({
     meta: [
-      { title: "Support Tickets — Qunomy Platform" },
+      { title: "Support Tickets — Qanomy Platform" },
       { name: "description", content: "Manage and resolve support requests from law firms." },
     ],
   }),

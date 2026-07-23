@@ -9,10 +9,10 @@ import heroVideo from "@/assets/video.mp4";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Create account — Qunomy Legal Intelligence" },
-      { name: "description", content: "Create your Qunomy account and start a 30-day free trial." },
-      { property: "og:title", content: "Create account — Qunomy Legal Intelligence" },
-      { property: "og:description", content: "Start your 30-day free trial of Qunomy." },
+      { title: "Create account — Qanomy Legal Intelligence" },
+      { name: "description", content: "Create your Qanomy account and start a 30-day free trial." },
+      { property: "og:title", content: "Create account — Qanomy Legal Intelligence" },
+      { property: "og:description", content: "Start your 30-day free trial of Qanomy." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -241,7 +241,7 @@ function SignUp() {
                   <span className="h-2 w-2 rounded-[1px] bg-[#14213D] opacity-0 transition-opacity peer-checked:opacity-100" />
                 </span>
                 <span>
-                  I agree to Qunomy's{" "}
+                  I agree to Qanomy's{" "}
                   <a href="#terms" className="text-[#B8860B] hover:text-[#F5F0E6]">Terms</a> and{" "}
                   <a href="#privacy" className="text-[#B8860B] hover:text-[#F5F0E6]">Privacy Policy</a>.
                 </span>

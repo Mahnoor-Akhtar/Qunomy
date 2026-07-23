@@ -105,7 +105,7 @@ function Index() {
               className="text-[11px] font-medium uppercase tracking-[0.5em]"
               style={{ color: "#B8860B" }}
             >
-              Qunomy Legal Intelligence
+              Qanomy Legal Intelligence
             </span>
             <span className="h-px w-8 bg-[#B8860B]" />
           </div>

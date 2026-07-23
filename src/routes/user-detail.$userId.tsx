@@ -11,7 +11,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/user-detail/$userId")({
   head: () => ({
     meta: [
-      { title: "User Details — Qunomy" },
+      { title: "User Details — Qanomy" },
       { name: "description", content: "View professional profile of user." },
     ],
   }),

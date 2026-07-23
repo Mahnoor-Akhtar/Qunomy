@@ -522,7 +522,7 @@ function LawyerInvoices() {
                     <div className="flex items-center gap-3">
                       <Scale className="h-10 w-10 text-[#B8860B]" />
                       <div className="flex flex-col">
-                        <span className="text-[18px] font-bold text-[#14213D] leading-tight" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qunomy</span>
+                        <span className="text-[18px] font-bold text-[#14213D] leading-tight" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qanomy</span>
                         <span className="text-[11px] font-medium text-[#1F1F1F]/50">Law Associates</span>
                       </div>
                     </div>
@@ -536,7 +536,7 @@ function LawyerInvoices() {
                   <div className="grid grid-cols-2 gap-10 mb-8">
                     <div>
                       <h3 className="text-[11px] font-bold text-[#1F1F1F]/50 mb-2">From:</h3>
-                      <div className="text-[13px] font-bold text-[#14213D] mb-1">Qunomy Law Associates</div>
+                      <div className="text-[13px] font-bold text-[#14213D] mb-1">Qanomy Law Associates</div>
                       <div className="text-[12px] text-[#1F1F1F]/70 leading-relaxed">
                         23-A, Model Town, Lahore,<br/>
                         Punjab, Pakistan<br/>
@@ -628,7 +628,7 @@ function LawyerInvoices() {
                       <h3 className="text-[12px] font-bold text-[#14213D] mb-1">Bank Details:</h3>
                       <div className="text-[11px] text-[#1F1F1F]/70 leading-relaxed">
                         Meezan Bank Limited<br/>
-                        Account Title: Qunomy Law Associates<br/>
+                        Account Title: Qanomy Law Associates<br/>
                         Account No: 1234-0100123456<br/>
                         IBAN: PK36MEZN00012340100123456
                       </div>

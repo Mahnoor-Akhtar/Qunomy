@@ -61,7 +61,7 @@ export default function LawyerShell({
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem("qunomy_user");
+      const raw = localStorage.getItem("qanomy_user");
       if (!raw) {
         navigate({ to: "/signin" });
         return;
@@ -74,7 +74,7 @@ export default function LawyerShell({
 
   const logout = () => {
     try {
-      localStorage.removeItem("qunomy_user");
+      localStorage.removeItem("qanomy_user");
     } catch {}
     navigate({ to: "/signin" });
   };
@@ -93,7 +93,7 @@ export default function LawyerShell({
               className="text-[22px] font-bold tracking-wide text-[#F5F0E6] leading-tight"
               style={{ fontFamily: "'Libre Baskerville', serif" }}
             >
-              Qunomy
+              Qanomy
             </span>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function LawyerShell({
             </button>
             <div className="flex items-center gap-2 rounded-full border border-[#14213D]/15 bg-white px-4 py-2 text-[11px] font-semibold text-[#14213D] cursor-pointer transition hover:border-[#B8860B]">
               <Scale className="h-3.5 w-3.5 text-[#B8860B]" />
-              <span className="font-bold" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qunomy</span>
+              <span className="font-bold" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qanomy</span>
               <ChevronDown className="h-3 w-3 text-[#1F1F1F]/50" />
             </div>
           </div>

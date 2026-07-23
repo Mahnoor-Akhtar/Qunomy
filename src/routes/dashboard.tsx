@@ -34,10 +34,10 @@ import AdminShell from "@/components/dashboard/AdminShell";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Platform Dashboard — Qunomy" },
-      { name: "description", content: "Global overview of firms, subscriptions, revenue and support for Qunomy administrators." },
-      { property: "og:title", content: "Platform Dashboard — Qunomy" },
-      { property: "og:description", content: "Manage firms, subscriptions and revenue across the Qunomy platform." },
+      { title: "Platform Dashboard — Qanomy" },
+      { name: "description", content: "Global overview of firms, subscriptions, revenue and support for Qanomy administrators." },
+      { property: "og:title", content: "Platform Dashboard — Qanomy" },
+      { property: "og:description", content: "Manage firms, subscriptions and revenue across the Qanomy platform." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

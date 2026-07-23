@@ -17,10 +17,10 @@ import { exportToCSV } from "@/utils/export";
 export const Route = createFileRoute("/firms")({
   head: () => ({
     meta: [
-      { title: "Firms Management — Qunomy" },
-      { name: "description", content: "View and manage all registered law firms on the Qunomy platform." },
-      { property: "og:title", content: "Firms Management — Qunomy" },
-      { property: "og:description", content: "Manage law firms, their subscriptions, users and audit logs on Qunomy." },
+      { title: "Firms Management — Qanomy" },
+      { name: "description", content: "View and manage all registered law firms on the Qanomy platform." },
+      { property: "og:title", content: "Firms Management — Qanomy" },
+      { property: "og:description", content: "Manage law firms, their subscriptions, users and audit logs on Qanomy." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

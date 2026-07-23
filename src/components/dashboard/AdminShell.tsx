@@ -56,7 +56,7 @@ export default function AdminShell({
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem("qunomy_user");
+      const raw = localStorage.getItem("qanomy_user");
       if (!raw) {
         navigate({ to: "/signin" });
         return;
@@ -69,7 +69,7 @@ export default function AdminShell({
 
   const logout = () => {
     try {
-      localStorage.removeItem("qunomy_user");
+      localStorage.removeItem("qanomy_user");
     } catch {}
     navigate({ to: "/signin" });
   };
@@ -81,12 +81,12 @@ export default function AdminShell({
     >
       <aside className="sticky top-0 z-30 hidden h-screen w-[240px] shrink-0 flex-col border-r border-[#14213D]/10 bg-[#14213D] text-[#F5F0E6] lg:flex">
         <div className="flex items-center gap-3 px-5 py-5">
-          <img src={logo} alt="Qunomy" className="h-9 w-auto" />
+          <img src={logo} alt="Qanomy" className="h-9 w-auto" />
           <span
             className="text-lg font-semibold tracking-[0.12em] text-[#F5F0E6]"
             style={{ fontFamily: "'Libre Baskerville', serif" }}
           >
-            Qunomy
+            Qanomy
           </span>
         </div>
 
@@ -120,7 +120,7 @@ export default function AdminShell({
           </div>
           <div className="flex-1 leading-tight">
             <div className="text-[13px] font-semibold text-[#F5F0E6]">Platform Admin</div>
-            <div className="text-[10px] text-[#F5F0E6]/50">{user?.email ?? "admin@qunomy.pk"}</div>
+            <div className="text-[10px] text-[#F5F0E6]/50">{user?.email ?? "admin@qanomy.pk"}</div>
           </div>
           <button
             onClick={logout}
