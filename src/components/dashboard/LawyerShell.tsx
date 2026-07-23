@@ -30,7 +30,6 @@ export type LawyerNavKey =
   | "invoices"
   | "notifications"
   | "reports"
-  | "client-portal"
   | "settings";
 
 export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: typeof LayoutDashboard }[] = [
@@ -43,7 +42,6 @@ export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: t
   { key: "invoices", label: "Invoices & Billing", to: "/lawyer-invoices", icon: Receipt },
   { key: "notifications", label: "Notifications", to: "/lawyer-notifications", icon: Bell },
   { key: "reports", label: "Reports", to: "/lawyer-reports", icon: BarChart2 },
-  { key: "client-portal", label: "Client Portal", to: "/lawyer-dashboard", icon: Users }, // Using generic icon as placeholder
   { key: "settings", label: "Settings", to: "/lawyer-dashboard", icon: Settings },
 ];
 
