@@ -45,25 +45,16 @@ function LawyerInvoices() {
 
   return (
     <LawyerShell active="invoices">
-      <div className="flex flex-col gap-6 max-w-[1400px] mx-auto h-full p-2">
-        
-        {/* Header Options */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="flex flex-col h-full space-y-4 max-w-[1400px] mx-auto w-full">
+        <div className="flex justify-between items-center shrink-0">
           <div>
-            <h1 className="text-[22px] font-bold text-[#14213D] tracking-tight">Invoices & Billing</h1>
-            <div className="flex items-center gap-2 text-[11px] font-medium text-[#1F1F1F]/50 mt-1">
-              <span className="hover:text-[#14213D] cursor-pointer transition-colors">Dashboard</span>
-              <span>›</span>
+            <h1 className="text-[24px] font-bold text-[#14213D] tracking-tight">Invoices & Billing</h1>
+            <div className="text-[12px] font-medium text-[#1F1F1F]/50 mt-1 flex items-center gap-2">
+              <span>Dashboard</span>
+              <span className="h-1 w-1 rounded-full bg-[#1F1F1F]/20"></span>
               <span className="text-[#14213D]">Invoices</span>
             </div>
           </div>
-          
-          <div className="flex items-center gap-3">
-             <button className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500 text-emerald-600 font-bold text-[12px] hover:bg-emerald-50 transition-colors shadow-sm bg-white">
-               <span className="h-5 w-5 bg-emerald-100 rounded-full flex items-center justify-center">
-                 <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.854 0-3.668-.501-5.265-1.448l-5.85 1.536 1.564-5.702c-1.037-1.636-1.583-3.523-1.583-5.466 0-5.498 4.475-9.972 9.973-9.972 5.499 0 9.973 4.474 9.973 9.972 0 5.498-4.474 9.972-9.973 9.972m5.753-7.531c-.316-.158-1.868-.921-2.158-1.026-.289-.105-.5-.158-.711.158-.21.316-.816 1.026-.999 1.237-.184.21-.368.237-.684.079-.316-.158-1.332-.491-2.538-1.566-.938-.838-1.571-1.874-1.755-2.19-.184-.316-.02-.487.138-.645.143-.143.316-.368.474-.552.158-.184.21-.316.316-.526.105-.21.053-.395-.026-.552-.079-.158-.711-1.711-.974-2.343-.255-.615-.515-.532-.711-.542-.184-.01-.395-.01-.605-.01s-.552.079-.842.395c-.289.316-1.105 1.079-1.105 2.632 0 1.553 1.131 3.053 1.289 3.264.158.21 2.228 3.4 5.394 4.757 3.167 1.358 3.167.905 3.746.853.579-.053 1.868-.763 2.131-1.5.263-.737.263-1.368.184-1.5-.079-.131-.289-.21-.605-.368z"/></svg>
-               </span> 
-               WhatsApp Reminders
              </button>
              <button className="relative h-9 w-9 flex items-center justify-center rounded-full bg-white border border-[#14213D]/10 text-[#14213D] hover:bg-gray-50 transition-colors shadow-sm">
                <Bell className="h-4 w-4" />
@@ -81,48 +72,48 @@ function LawyerInvoices() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white border border-[#14213D]/10 rounded-xl p-5 flex items-center gap-4 shadow-sm">
-            <div className="h-12 w-12 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
-              <FileText className="h-5 w-5 text-emerald-500" />
+          <div className="bg-white border border-[#14213D]/10 rounded-xl p-4 flex items-center gap-3 shadow-sm">
+            <div className="h-10 w-10 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+              <FileText className="h-4 w-4 text-emerald-500" />
             </div>
             <div>
               <div className="text-[11px] font-bold text-[#1F1F1F]/50">Total Invoices</div>
-              <div className="text-[20px] font-bold text-[#14213D] leading-tight mt-0.5">128</div>
-              <div className="text-[10px] text-[#1F1F1F]/40 mt-1">This Month</div>
+              <div className="text-[18px] font-bold text-[#14213D] leading-tight mt-0.5">128</div>
+              <div className="text-[10px] text-[#1F1F1F]/40 mt-0.5">This Month</div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#14213D]/10 rounded-xl p-5 flex items-center gap-4 shadow-sm">
-            <div className="h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-              <Banknote className="h-5 w-5 text-blue-500" />
+          <div className="bg-white border border-[#14213D]/10 rounded-xl p-4 flex items-center gap-3 shadow-sm">
+            <div className="h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+              <Banknote className="h-4 w-4 text-blue-500" />
             </div>
             <div>
               <div className="text-[11px] font-bold text-[#1F1F1F]/50">Total Billed</div>
-              <div className="text-[20px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 1,850,000</div>
-              <div className="text-[10px] text-[#1F1F1F]/40 mt-1">This Month</div>
+              <div className="text-[18px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 1,850,000</div>
+              <div className="text-[10px] text-[#1F1F1F]/40 mt-0.5">This Month</div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#14213D]/10 rounded-xl p-5 flex items-center gap-4 shadow-sm">
-            <div className="h-12 w-12 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
-              <CreditCard className="h-5 w-5 text-orange-500" />
+          <div className="bg-white border border-[#14213D]/10 rounded-xl p-4 flex items-center gap-3 shadow-sm">
+            <div className="h-10 w-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
+              <CreditCard className="h-4 w-4 text-orange-500" />
             </div>
             <div>
               <div className="text-[11px] font-bold text-[#1F1F1F]/50">Paid Amount</div>
-              <div className="text-[20px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 1,125,000</div>
-              <div className="text-[10px] text-[#1F1F1F]/40 mt-1">This Month</div>
+              <div className="text-[18px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 1,125,000</div>
+              <div className="text-[10px] text-[#1F1F1F]/40 mt-0.5">This Month</div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#14213D]/10 rounded-xl p-5 flex items-center gap-4 shadow-sm relative overflow-hidden">
+          <div className="bg-white border border-[#14213D]/10 rounded-xl p-4 flex items-center gap-3 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 h-16 w-16 bg-red-50 rounded-full blur-2xl -mr-4 -mt-4"></div>
-            <div className="h-12 w-12 rounded-full bg-red-50 flex items-center justify-center shrink-0 relative z-10">
-              <AlertCircle className="h-5 w-5 text-red-500" />
+            <div className="h-10 w-10 rounded-full bg-red-50 flex items-center justify-center shrink-0 relative z-10">
+              <AlertCircle className="h-4 w-4 text-red-500" />
             </div>
             <div className="relative z-10">
               <div className="text-[11px] font-bold text-[#1F1F1F]/50">Outstanding</div>
-              <div className="text-[20px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 725,000</div>
-              <div className="text-[10px] text-[#1F1F1F]/40 mt-1">This Month</div>
+              <div className="text-[18px] font-bold text-[#14213D] leading-tight mt-0.5">PKR 725,000</div>
+              <div className="text-[10px] text-[#1F1F1F]/40 mt-0.5">This Month</div>
             </div>
           </div>
         </div>
@@ -167,38 +158,38 @@ function LawyerInvoices() {
           </div>
 
           {/* Table Area */}
-          <div className="flex-1 overflow-x-auto min-h-0 bg-white">
-             <table className="w-full text-left border-collapse whitespace-nowrap">
+          <div className="flex-1 overflow-y-auto min-h-0 bg-white">
+             <table className="w-full text-left border-collapse">
                <thead>
                  <tr className="bg-white border-b border-[#14213D]/10">
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider w-12">#</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Invoice No.</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Client</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Case</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Issue Date</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Due Date</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Amount</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Paid</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Status</th>
-                   <th className="px-5 py-4 text-[11px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider text-right">Actions</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider w-10">#</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Invoice No.</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Client</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Case</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Issue Date</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider whitespace-nowrap">Due Date</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Amount</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Paid</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider">Status</th>
+                   <th className="px-3 py-3 text-[10px] font-bold text-[#1F1F1F]/60 uppercase tracking-wider text-right">Actions</th>
                  </tr>
                </thead>
                <tbody>
                  {MOCK_INVOICES.map((inv, idx) => (
                    <tr key={inv.id} className="border-b border-[#14213D]/5 hover:bg-gray-50/80 transition-all duration-200 group">
-                     <td className="px-5 py-4 text-[12px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
-                     <td className="px-5 py-4 text-[12px] font-bold text-[#14213D]">{inv.id}</td>
-                     <td className="px-5 py-4 text-[12px] font-bold text-[#14213D]">{inv.client}</td>
-                     <td className="px-5 py-4">
-                       <div className="text-[12px] font-bold text-[#14213D]">{inv.case1}</div>
-                       <div className="text-[11px] text-[#1F1F1F]/50 mt-1">{inv.case2}</div>
+                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/50">{idx + 1}</td>
+                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">{inv.id}</td>
+                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] leading-tight min-w-[120px]">{inv.client}</td>
+                     <td className="px-3 py-3 min-w-[150px]">
+                       <div className="text-[11px] font-bold text-[#14213D] leading-tight">{inv.case1}</div>
+                       <div className="text-[10px] text-[#1F1F1F]/50 mt-0.5 leading-tight">{inv.case2}</div>
                      </td>
-                     <td className="px-5 py-4 text-[12px] font-medium text-[#1F1F1F]/70">{inv.issueDate}</td>
-                     <td className="px-5 py-4 text-[12px] font-medium text-[#1F1F1F]/70">{inv.dueDate}</td>
-                     <td className="px-5 py-4 text-[12px] font-bold text-[#14213D]">PKR {formatMoney(inv.amount)}</td>
-                     <td className="px-5 py-4 text-[12px] font-bold text-[#14213D]">PKR {formatMoney(inv.paid)}</td>
-                     <td className="px-5 py-4">
-                       <span className={`inline-flex items-center justify-center px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wide ${
+                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.issueDate}</td>
+                     <td className="px-3 py-3 text-[11px] font-medium text-[#1F1F1F]/70 whitespace-nowrap">{inv.dueDate}</td>
+                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.amount)}</td>
+                     <td className="px-3 py-3 text-[11px] font-bold text-[#14213D] whitespace-nowrap">PKR {formatMoney(inv.paid)}</td>
+                     <td className="px-3 py-3">
+                       <span className={`inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[9px] font-bold tracking-wide whitespace-nowrap ${
                          inv.status === 'Paid' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
                          inv.status === 'Partial' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
                          inv.status === 'Overdue' ? 'bg-red-50 text-red-600 border border-red-100' :
@@ -207,25 +198,25 @@ function LawyerInvoices() {
                          {inv.status}
                        </span>
                      </td>
-                     <td className="px-5 py-4">
-                       <div className="flex items-center justify-end gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                     <td className="px-3 py-3">
+                       <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                          <button 
                           onClick={() => { setSelectedInvoice(inv); setIsViewModalOpen(true); }}
-                          className="h-8 w-8 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-emerald-600 hover:border-emerald-200 hover:bg-emerald-50 transition-all shadow-sm"
+                          className="h-7 w-7 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-emerald-600 hover:border-emerald-200 hover:bg-emerald-50 transition-all shadow-sm"
                          >
-                           <Eye className="h-4 w-4" />
+                           <Eye className="h-3.5 w-3.5" />
                          </button>
                          <button 
                           onClick={() => { setSelectedInvoice(inv); setIsCreateModalOpen(true); }}
-                          className="h-8 w-8 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all shadow-sm"
+                          className="h-7 w-7 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all shadow-sm"
                          >
-                           <Edit2 className="h-4 w-4" />
+                           <Edit2 className="h-3.5 w-3.5" />
                          </button>
                          <button 
                           onClick={() => { setSelectedInvoice(inv); setIsPaymentModalOpen(true); }}
-                          className="h-8 w-8 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-[#14213D] hover:border-[#14213D]/20 hover:bg-gray-50 transition-all shadow-sm"
+                          className="h-7 w-7 rounded-lg flex items-center justify-center bg-white border border-[#14213D]/10 text-[#1F1F1F]/40 hover:text-[#14213D] hover:border-[#14213D]/20 hover:bg-gray-50 transition-all shadow-sm"
                          >
-                           <MoreVertical className="h-4 w-4" />
+                           <MoreVertical className="h-3.5 w-3.5" />
                          </button>
                        </div>
                      </td>
