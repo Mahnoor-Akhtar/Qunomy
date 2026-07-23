@@ -151,9 +151,6 @@ function LawyerInvoices() {
             <button className="h-9 px-4 flex items-center gap-2 border border-[#14213D]/10 rounded-lg text-[12px] font-bold text-[#14213D] hover:bg-gray-50 transition-colors">
               <Filter className="h-4 w-4 text-[#1F1F1F]/50" /> Filter
             </button>
-            <button className="h-9 px-4 flex items-center gap-2 border border-[#14213D]/10 rounded-lg text-[12px] font-bold text-[#14213D] hover:bg-gray-50 transition-colors">
-              <Download className="h-4 w-4 text-[#1F1F1F]/50" /> Export
-            </button>
           </div>
 
           {/* Table Area */}
