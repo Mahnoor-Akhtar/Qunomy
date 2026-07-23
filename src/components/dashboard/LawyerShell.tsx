@@ -42,7 +42,7 @@ export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: t
   { key: "invoices", label: "Invoices & Billing", to: "/lawyer-invoices", icon: Receipt },
   { key: "notifications", label: "Notifications", to: "/lawyer-notifications", icon: Bell },
   { key: "reports", label: "Reports", to: "/lawyer-reports", icon: BarChart2 },
-  { key: "settings", label: "Settings", to: "/lawyer-dashboard", icon: Settings },
+  { key: "settings", label: "Settings", to: "/lawyer-settings", icon: Settings },
 ];
 
 export default function LawyerShell({

@@ -23,6 +23,7 @@ import { Route as LawyerHearingsRouteImport } from './routes/lawyer-hearings'
 import { Route as LawyerInvoicesRouteImport } from './routes/lawyer-invoices'
 import { Route as LawyerNotificationsRouteImport } from './routes/lawyer-notifications'
 import { Route as LawyerReportsRouteImport } from './routes/lawyer-reports'
+import { Route as LawyerSettingsRouteImport } from './routes/lawyer-settings'
 import { Route as LawyerTeamRouteImport } from './routes/lawyer-team'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -106,6 +107,11 @@ const LawyerNotificationsRoute = LawyerNotificationsRouteImport.update({
 const LawyerReportsRoute = LawyerReportsRouteImport.update({
   id: '/lawyer-reports',
   path: '/lawyer-reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LawyerSettingsRoute = LawyerSettingsRouteImport.update({
+  id: '/lawyer-settings',
+  path: '/lawyer-settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LawyerTeamRoute = LawyerTeamRouteImport.update({
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
   '/lawyer-reports': typeof LawyerReportsRoute
+  '/lawyer-settings': typeof LawyerSettingsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -225,6 +232,7 @@ export interface FileRoutesByTo {
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
   '/lawyer-reports': typeof LawyerReportsRoute
+  '/lawyer-settings': typeof LawyerSettingsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -256,6 +264,7 @@ export interface FileRoutesById {
   '/lawyer-invoices': typeof LawyerInvoicesRoute
   '/lawyer-notifications': typeof LawyerNotificationsRoute
   '/lawyer-reports': typeof LawyerReportsRoute
+  '/lawyer-settings': typeof LawyerSettingsRoute
   '/lawyer-team': typeof LawyerTeamRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -288,6 +297,7 @@ export interface FileRouteTypes {
     | '/lawyer-invoices'
     | '/lawyer-notifications'
     | '/lawyer-reports'
+    | '/lawyer-settings'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -318,6 +328,7 @@ export interface FileRouteTypes {
     | '/lawyer-invoices'
     | '/lawyer-notifications'
     | '/lawyer-reports'
+    | '/lawyer-settings'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -348,6 +359,7 @@ export interface FileRouteTypes {
     | '/lawyer-invoices'
     | '/lawyer-notifications'
     | '/lawyer-reports'
+    | '/lawyer-settings'
     | '/lawyer-team'
     | '/reports'
     | '/settings'
@@ -379,6 +391,7 @@ export interface RootRouteChildren {
   LawyerInvoicesRoute: typeof LawyerInvoicesRoute
   LawyerNotificationsRoute: typeof LawyerNotificationsRoute
   LawyerReportsRoute: typeof LawyerReportsRoute
+  LawyerSettingsRoute: typeof LawyerSettingsRoute
   LawyerTeamRoute: typeof LawyerTeamRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
@@ -492,6 +505,13 @@ declare module '@tanstack/react-router' {
       path: '/lawyer-reports'
       fullPath: '/lawyer-reports'
       preLoaderRoute: typeof LawyerReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lawyer-settings': {
+      id: '/lawyer-settings'
+      path: '/lawyer-settings'
+      fullPath: '/lawyer-settings'
+      preLoaderRoute: typeof LawyerSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lawyer-team': {
@@ -620,6 +640,7 @@ const rootRouteChildren: RootRouteChildren = {
   LawyerInvoicesRoute: LawyerInvoicesRoute,
   LawyerNotificationsRoute: LawyerNotificationsRoute,
   LawyerReportsRoute: LawyerReportsRoute,
+  LawyerSettingsRoute: LawyerSettingsRoute,
   LawyerTeamRoute: LawyerTeamRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
