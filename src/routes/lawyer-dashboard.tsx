@@ -30,7 +30,7 @@ function LawyerDashboard() {
         <div>
           <h1 className="text-2xl font-bold text-[#14213D] flex items-center gap-2"
               style={{ fontFamily: "'Libre Baskerville', serif" }}>
-            Good morning, Ali Raza! <span className="text-xl">👋</span>
+            Good morning, Haris! <span className="text-xl">👋</span>
           </h1>
           <p className="text-xs text-[#1F1F1F]/60 mt-1">Here's what's happening with your cases today.</p>
         </div>

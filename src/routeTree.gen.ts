@@ -18,6 +18,7 @@ import { Route as LawyerCasesNewRouteImport } from './routes/lawyer-cases-new'
 import { Route as LawyerClientsRouteImport } from './routes/lawyer-clients'
 import { Route as LawyerClientsNewRouteImport } from './routes/lawyer-clients-new'
 import { Route as LawyerDashboardRouteImport } from './routes/lawyer-dashboard'
+import { Route as LawyerDocumentsRouteImport } from './routes/lawyer-documents'
 import { Route as LawyerHearingsRouteImport } from './routes/lawyer-hearings'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -76,6 +77,11 @@ const LawyerClientsNewRoute = LawyerClientsNewRouteImport.update({
 const LawyerDashboardRoute = LawyerDashboardRouteImport.update({
   id: '/lawyer-dashboard',
   path: '/lawyer-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LawyerDocumentsRoute = LawyerDocumentsRouteImport.update({
+  id: '/lawyer-documents',
+  path: '/lawyer-documents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LawyerHearingsRoute = LawyerHearingsRouteImport.update({
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/lawyer-clients': typeof LawyerClientsRoute
   '/lawyer-clients-new': typeof LawyerClientsNewRoute
   '/lawyer-dashboard': typeof LawyerDashboardRoute
+  '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/lawyer-clients': typeof LawyerClientsRoute
   '/lawyer-clients-new': typeof LawyerClientsNewRoute
   '/lawyer-dashboard': typeof LawyerDashboardRoute
+  '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -211,6 +219,7 @@ export interface FileRoutesById {
   '/lawyer-clients': typeof LawyerClientsRoute
   '/lawyer-clients-new': typeof LawyerClientsNewRoute
   '/lawyer-dashboard': typeof LawyerDashboardRoute
+  '/lawyer-documents': typeof LawyerDocumentsRoute
   '/lawyer-hearings': typeof LawyerHearingsRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
@@ -238,6 +247,7 @@ export interface FileRouteTypes {
     | '/lawyer-clients'
     | '/lawyer-clients-new'
     | '/lawyer-dashboard'
+    | '/lawyer-documents'
     | '/lawyer-hearings'
     | '/reports'
     | '/settings'
@@ -263,6 +273,7 @@ export interface FileRouteTypes {
     | '/lawyer-clients'
     | '/lawyer-clients-new'
     | '/lawyer-dashboard'
+    | '/lawyer-documents'
     | '/lawyer-hearings'
     | '/reports'
     | '/settings'
@@ -288,6 +299,7 @@ export interface FileRouteTypes {
     | '/lawyer-clients'
     | '/lawyer-clients-new'
     | '/lawyer-dashboard'
+    | '/lawyer-documents'
     | '/lawyer-hearings'
     | '/reports'
     | '/settings'
@@ -314,6 +326,7 @@ export interface RootRouteChildren {
   LawyerClientsRoute: typeof LawyerClientsRoute
   LawyerClientsNewRoute: typeof LawyerClientsNewRoute
   LawyerDashboardRoute: typeof LawyerDashboardRoute
+  LawyerDocumentsRoute: typeof LawyerDocumentsRoute
   LawyerHearingsRoute: typeof LawyerHearingsRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
@@ -392,6 +405,13 @@ declare module '@tanstack/react-router' {
       path: '/lawyer-dashboard'
       fullPath: '/lawyer-dashboard'
       preLoaderRoute: typeof LawyerDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lawyer-documents': {
+      id: '/lawyer-documents'
+      path: '/lawyer-documents'
+      fullPath: '/lawyer-documents'
+      preLoaderRoute: typeof LawyerDocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lawyer-hearings': {
@@ -515,6 +535,7 @@ const rootRouteChildren: RootRouteChildren = {
   LawyerClientsRoute: LawyerClientsRoute,
   LawyerClientsNewRoute: LawyerClientsNewRoute,
   LawyerDashboardRoute: LawyerDashboardRoute,
+  LawyerDocumentsRoute: LawyerDocumentsRoute,
   LawyerHearingsRoute: LawyerHearingsRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,

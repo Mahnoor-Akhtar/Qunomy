@@ -38,7 +38,7 @@ export const LAWYER_NAV: { key: LawyerNavKey; label: string; to: string; icon: t
   { key: "cases", label: "Cases", to: "/lawyer-cases", icon: Briefcase },
   { key: "hearings", label: "Hearings & Calendar", to: "/lawyer-hearings", icon: Calendar },
   { key: "clients", label: "Clients", to: "/lawyer-clients", icon: Users },
-  { key: "documents", label: "Documents", to: "/lawyer-dashboard", icon: FileText },
+  { key: "documents", label: "Documents", to: "/lawyer-documents", icon: FileText },
   { key: "team", label: "Team", to: "/lawyer-dashboard", icon: Users2 },
   { key: "invoices", label: "Invoices & Billing", to: "/lawyer-dashboard", icon: Receipt },
   { key: "notifications", label: "Notifications", to: "/lawyer-dashboard", icon: Bell },
@@ -92,12 +92,11 @@ export default function LawyerShell({
           <Scale className="h-8 w-8 text-[#B8860B]" />
           <div className="flex flex-col">
             <span
-              className="text-lg font-semibold tracking-[0.12em] text-[#F5F0E6] leading-tight"
+              className="text-[22px] font-bold tracking-wide text-[#F5F0E6] leading-tight"
               style={{ fontFamily: "'Libre Baskerville', serif" }}
             >
-              Noor Law
+              Qunomy
             </span>
-            <span className="text-[11px] font-medium text-[#F5F0E6]/80 leading-tight tracking-[0.08em] uppercase">Associates</span>
           </div>
         </div>
 
@@ -134,7 +133,7 @@ export default function LawyerShell({
             {(user?.name?.[0] ?? "A").toUpperCase()}
           </div>
           <div className="flex-1 leading-tight">
-            <div className="text-[13px] font-semibold text-[#F5F0E6]">{user?.name ?? "Ali Raza"}</div>
+            <div className="text-[13px] font-semibold text-[#F5F0E6]">{user?.name ?? "Haris"}</div>
             <div className="text-[10px] text-[#F5F0E6]/50">Admin</div>
           </div>
           <button
@@ -164,7 +163,7 @@ export default function LawyerShell({
             </button>
             <div className="flex items-center gap-2 rounded-full border border-[#14213D]/15 bg-white px-4 py-2 text-[11px] font-semibold text-[#14213D] cursor-pointer transition hover:border-[#B8860B]">
               <Scale className="h-3.5 w-3.5 text-[#B8860B]" />
-              <span>Noor Law Associates</span>
+              <span className="font-bold" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qunomy</span>
               <ChevronDown className="h-3 w-3 text-[#1F1F1F]/50" />
             </div>
           </div>
