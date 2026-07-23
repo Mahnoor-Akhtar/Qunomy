@@ -55,19 +55,12 @@ function LawyerInvoices() {
               <span className="text-[#14213D]">Invoices</span>
             </div>
           </div>
-             </button>
-             <button className="relative h-9 w-9 flex items-center justify-center rounded-full bg-white border border-[#14213D]/10 text-[#14213D] hover:bg-gray-50 transition-colors shadow-sm">
-               <Bell className="h-4 w-4" />
-               <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] text-white font-bold">5</span>
-             </button>
-             
-             <div className="h-9 px-3 flex items-center gap-2 rounded-full bg-white border border-[#14213D]/10 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors">
-                <Scale className="h-4 w-4 text-[#B8860B]" />
-                <span className="text-[12px] font-bold text-[#14213D]" style={{ fontFamily: "'Libre Baskerville', serif" }}>Qunomy</span>
-                <div className="h-3 w-[1px] bg-[#14213D]/10 mx-1"></div>
-                <svg className="w-3 h-3 text-[#1F1F1F]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-             </div>
-          </div>
+          <button 
+           onClick={() => setIsCreateModalOpen(true)}
+           className="h-10 px-5 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[13px] font-bold transition-colors shadow-sm"
+          >
+            <Plus className="h-4 w-4" /> Create Invoice
+          </button>
         </div>
 
         {/* Stats Row */}
