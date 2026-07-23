@@ -97,7 +97,7 @@ const MOCK_DOCUMENTS = [
 function LawyerDocuments() {
   const [selectedCase, setSelectedCase] = useState<number | null>(1);
   const [selectedFolder, setSelectedFolder] = useState<string>("Pleadings");
-  const [selectedDocument, setSelectedDocument] = useState<any>(MOCK_DOCUMENTS[0]);
+  const [selectedDocument, setSelectedDocument] = useState<any>(null);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 
